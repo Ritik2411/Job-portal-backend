@@ -38,9 +38,12 @@ namespace EmployeeModule
             //Vacancy Detail Table
             services.AddDbContext<VacancyDetailContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));
 
+            //Vacancy Requests Table
+            services.AddDbContext<VacancyRequestsContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));
+            
             services.AddTransient<IEmployee, EmployeeRepository>();    
             services.AddTransient<IVacancyDetail, VacancyDetailRepository>();                
-            
+            services.AddTransient<IVacancyRequests, VacancyRequestsRepository>();
             services.AddCors(options => {
                 options.AddDefaultPolicy(builderPolicy => {
                     builderPolicy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();

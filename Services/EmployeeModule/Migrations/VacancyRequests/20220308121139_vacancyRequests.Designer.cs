@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace EmployeeModule.Migrations
+namespace EmployeeModule.Migrations.VacancyRequests
 {
-    [DbContext(typeof(EmployeeContext))]
-    [Migration("20220304043158_employee")]
-    partial class employee
+    [DbContext(typeof(VacancyRequestsContext))]
+    [Migration("20220308121139_vacancyRequests")]
+    partial class vacancyRequests
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,40 +21,25 @@ namespace EmployeeModule.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("EmployeeModule.Context.Employee", b =>
+            modelBuilder.Entity("EmployeeModule.Context.VacancyRequests", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("CompanyEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CompanyPhone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NoOfEmployee")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Organization")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OrganizationType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("StartYear")
+                    b.Property<DateTime>("applied_on")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("about")
+                    b.Property<string>("user_id")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("createdBy")
+                    b.Property<string>("vacancy_id")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
 
-                    b.ToTable("employee");
+                    b.ToTable("vacancyRequests");
                 });
 #pragma warning restore 612, 618
         }

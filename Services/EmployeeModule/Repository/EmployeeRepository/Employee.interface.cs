@@ -5,9 +5,10 @@ using EmployeeModule.Model;
 
 namespace EmployeeModule.Repository{
     public interface IEmployee{
-        Task<Employee> AddEmployeeAsync(EmployeeModel employeeModel);
+        Task<Employee> AddEmployeeAsync(Employee employeeModel);
         Task<List<Employee>> getAllEmployeeAsync();
-        Task DeleteEmployeeAsync(int id);
-        Task UpdateEmployeeAync(int id,EmployeeModel employeeModel);
+        Task DeleteEmployeeAsync(string id);
+        Task UpdateEmployeeAync(string id,EmployeeModel employeeModel);
+        Task<List<Employee>> getEmlpoyeeByIdAsync(string id);
     }
 }

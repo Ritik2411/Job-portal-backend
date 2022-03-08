@@ -11,8 +11,7 @@ namespace EmployeeModule.Migrations
                 name: "employee",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Organization = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     OrganizationType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CompanyEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),

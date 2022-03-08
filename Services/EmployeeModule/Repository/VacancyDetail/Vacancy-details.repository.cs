@@ -16,6 +16,7 @@ namespace EmployeeModule.Repository{
         public async Task<List<VacancyDetail>> getVacancyListAsync(){
             var vacancies = await _vacancy.vacancies.Select(x=>new VacancyDetail(){
                 id = x.id,
+                user_id = x.user_id,
                 PublishedBy = x.PublishedBy,
                 Published_Date = x.Published_Date,
                 No_of_Vacancies = x.No_of_Vacancies,
@@ -30,9 +31,10 @@ namespace EmployeeModule.Repository{
             return vacancies;
         }
 
-        public async Task<List<VacancyDetail>> getVacanyByIdAsync(int id){
-            var vacancyData = await _vacancy.vacancies.Where(x => x.id == id).Select(x=>new VacancyDetail(){
+        public async Task<List<VacancyDetail>> getVacanyByUserIdAsync(string id){
+            var vacancyData = await _vacancy.vacancies.Where(x => x.user_id == id).Select(x=>new VacancyDetail(){
                 id = x.id,
+                user_id = x.user_id,
                 PublishedBy = x.PublishedBy,
                 Published_Date = x.Published_Date,
                 No_of_Vacancies = x.No_of_Vacancies,
@@ -47,8 +49,9 @@ namespace EmployeeModule.Repository{
             return vacancyData;
         }
 
-        public async Task<VacancyDetailModel> AddVacancyAsync(VacancyDetailModel vacancyDetailModel){
+        public async Task AddVacancyAsync(VacancyDetail vacancyDetailModel){
             var vacancy = new VacancyDetail(){
+                user_id = vacancyDetailModel.user_id,
                 PublishedBy = vacancyDetailModel.PublishedBy,
                 Published_Date = vacancyDetailModel.Published_Date,
                 No_of_Vacancies = vacancyDetailModel.No_of_Vacancies,
@@ -62,8 +65,6 @@ namespace EmployeeModule.Repository{
 
             _vacancy.vacancies.Add(vacancy);
             await  _vacancy.SaveChangesAsync();
-
-            return vacancyDetailModel;
         }
 
         public async Task deleteVacancyAsync(int id){

@@ -21,10 +21,8 @@ namespace EmployeeModule.Migrations
 
             modelBuilder.Entity("EmployeeModule.Context.Employee", b =>
                 {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CompanyEmail")
                         .HasColumnType("nvarchar(max)");

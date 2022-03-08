@@ -30,8 +30,8 @@ namespace JobseekerModule.repository{
             await _context.SaveChangesAsync();
         }
 
-        public async Task<JobSeekerModel> GetJobSeekerByIdAsync(string id){
-            var data = await _context.jobSeeker.FindAsync(id);
+        public async Task<JobSeekerModel> GetJobSeekerByIdAsync(string user_id){
+            var data = await _context.jobSeeker.FindAsync(user_id);
 
             var jobseeker = new JobSeekerModel(){
                 first_name = data.first_name,
@@ -61,6 +61,15 @@ namespace JobseekerModule.repository{
 
                 await _context.SaveChangesAsync();
             }
+        }
+
+        public async Task DeleteJobSeekerByIdAsync(string user_id){
+            var jobseeker = new JobSeeker(){
+                id = user_id
+            };
+
+            _context.jobSeeker.Remove(jobseeker);
+            await _context.SaveChangesAsync();
         }
     }
 }

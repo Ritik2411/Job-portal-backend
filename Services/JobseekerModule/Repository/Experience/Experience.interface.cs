@@ -8,5 +8,6 @@ namespace JobseekerModule.repository{
         Task AddUserExperienceAsync(ExperienceModel experienceModel);
         Task<List<Experience>> GetUserExperienceByIdAsync(string id);
         Task UpdateExperienceById(int id, ExperienceModel experienceModel);
+        Task DeleteExperienceByIdAsync(int id);
     }
 }

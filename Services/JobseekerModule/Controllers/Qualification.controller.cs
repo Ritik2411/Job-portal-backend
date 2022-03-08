@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JobseekerModule.controller{
     [ApiController]
-    [Route("[action]")]
+    [Route("api/[controller]")]
     public class QualificationController : ControllerBase{
          private readonly IQualification _qualification;
          public QualificationController(IQualification qualification){
@@ -18,9 +18,9 @@ namespace JobseekerModule.controller{
              return Ok(true);
          }
 
-         [HttpGet("{id}")]
-         public async Task<IActionResult> getQualificaitionByUserId([FromRoute]string id){
-             var result = await _qualification.GetQualicationByUserId(id);
+         [HttpGet("{user_id}")]
+         public async Task<IActionResult> getQualificaitionByUserId([FromRoute]string user_id){
+             var result = await _qualification.GetQualicationByUserId(user_id);
              return Ok(result);   
          }
 
@@ -29,5 +29,11 @@ namespace JobseekerModule.controller{
              await _qualification.UpdateQualificaitonAsync(id,qualificationModel);
              return Ok(true);
          }   
+
+         [HttpDelete("{id}")]
+         public async Task<IActionResult> deleteQualificationByid(int id){
+             await _qualification.deleteQualificationByIdAsync(id);
+             return Ok(true);
+         }
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace IdentityModule.controller{
     [ApiController]
-    [Route("[action]")]
+    [Route("api/[action]")]
     public class IdentityController : ControllerBase{
         public readonly IIdentity _identity;
 
@@ -51,6 +51,12 @@ namespace IdentityModule.controller{
         public async Task<IActionResult> getAllUsersById([FromRoute]string id){
             var result = await _identity.GetAllUsersByIdAsync(id);
             return Ok(result);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> signOut(){
+            await _identity.SignOutAsync();
+            return Ok(true);
         }
     }
 }

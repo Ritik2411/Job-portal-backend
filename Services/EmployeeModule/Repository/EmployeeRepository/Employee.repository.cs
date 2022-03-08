@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeModule.Repository{
     public class EmployeeRepository : IEmployee{
-
         private readonly EmployeeContext _employee;
         private readonly VacancyDetailContext _vacancy;
 
@@ -16,16 +15,17 @@ namespace EmployeeModule.Repository{
             _vacancy = vacancy;
         }
 
-        public async Task<Employee> AddEmployeeAsync(EmployeeModel employeeModel){
+        public async Task<Employee> AddEmployeeAsync(Employee employeeModel){
             var employee = new Employee(){
+                id = employeeModel.id,
                 Organization = employeeModel.Organization,
-                OrganizationType = employeeModel.OrgnizationType,
+                OrganizationType = employeeModel.OrganizationType,
                 CompanyEmail = employeeModel.CompanyEmail, 
                 CompanyPhone = employeeModel.CompanyPhone,
-                NoOfEmployee = employeeModel.NoOfEmployees,
+                NoOfEmployee = employeeModel.NoOfEmployee,
                 StartYear = employeeModel.StartYear,
-                about = employeeModel.About,
-                createdBy = employeeModel.CreatedBy
+                about = employeeModel.about,
+                createdBy = employeeModel.createdBy
             };
             _employee.employee.Add(employee); 
             await _employee.SaveChangesAsync();
@@ -49,7 +49,7 @@ namespace EmployeeModule.Repository{
             return result;
         }
 
-        public async Task DeleteEmployeeAsync(int id){
+        public async Task DeleteEmployeeAsync(string id){
             var employee = new Employee(){
                 id = id
             }; 
@@ -59,7 +59,7 @@ namespace EmployeeModule.Repository{
             await _employee.SaveChangesAsync();
         }    
 
-        public async Task UpdateEmployeeAync(int id,EmployeeModel employeeModel){
+        public async Task UpdateEmployeeAync(string id,EmployeeModel employeeModel){
             var employee = await _employee.employee.FindAsync(id);
 
             if(employee != null){
@@ -74,6 +74,22 @@ namespace EmployeeModule.Repository{
 
                 await _employee.SaveChangesAsync();
             }
+        }
+
+        public async Task<List<Employee>> getEmlpoyeeByIdAsync(string id){
+            var result = await _employee.employee.Where(x => x.id == id).Select(x => new Employee(){
+                id = x.id,
+                Organization = x.Organization,
+                OrganizationType = x.OrganizationType,
+                CompanyEmail = x.CompanyEmail,
+                CompanyPhone = x.CompanyPhone,
+                NoOfEmployee = x.NoOfEmployee,
+                StartYear = x.StartYear,
+                about = x.about,
+                createdBy = x.createdBy
+            }).ToListAsync();
+
+            return result;
         }
     }
 }

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace EmployeeModule.Context{
     public class VacancyDetail{
         public int id { get;set;}
+        public string user_id { get;set; }
 
         public string PublishedBy { get;set; } 
         

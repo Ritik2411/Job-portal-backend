@@ -75,5 +75,9 @@ namespace IdentityModule.repository{
             var result = await _user.FindByIdAsync(id);
             return result;
         }
+
+        public async Task SignOutAsync(){
+            await _signmanager.SignOutAsync();
+        }
     }
 }

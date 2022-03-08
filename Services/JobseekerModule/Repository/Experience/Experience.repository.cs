@@ -55,5 +55,14 @@ namespace JobseekerModule.repository{
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task DeleteExperienceByIdAsync(int id){
+            var experience = new Experience(){
+                Id = id
+            };
+
+            _context.experience.Remove(experience);
+            await _context.SaveChangesAsync();
+        }
     }
 }

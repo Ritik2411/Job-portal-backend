@@ -7,5 +7,6 @@ namespace JobseekerModule.repository{
         Task AddQualificationAsync(QualificationModel qualificationModel);
         Task<List<Qualification>> GetQualicationByUserId(string id);
         Task UpdateQualificaitonAsync(int id,QualificationModel qualificationModel);
+        Task deleteQualificationByIdAsync(int id);
     }
 }

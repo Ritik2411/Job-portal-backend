@@ -25,8 +25,8 @@ namespace JobseekerModule.repository{
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Qualification>> GetQualicationByUserId(string id){
-            var qualification_data = await _context.qualifications.Where(x => x.userId == id).Select(x => new Qualification(){
+        public async Task<List<Qualification>> GetQualicationByUserId(string user_id){
+            var qualification_data = await _context.qualifications.Where(x => x.userId == user_id).Select(x => new Qualification(){
                 id = x.id,
                 userId = x.userId,
                 qualification = x.qualification,
@@ -50,6 +50,15 @@ namespace JobseekerModule.repository{
 
                 await _context.SaveChangesAsync();
             }
+        }
+
+        public async Task deleteQualificationByIdAsync(int id){
+            var qualification = new Qualification(){
+                id = id
+            };
+
+            _context.qualifications.Remove(qualification);
+            await _context.SaveChangesAsync();
         }
     }
 }

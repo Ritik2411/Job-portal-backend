@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Job Portal\\Server\\WebApi\\WebApi.csproj": {}
+    "D:\\Job Portal\\Server\\webapi\\WebApi.csproj": {}
   },
   "projects": {
-    "D:\\Job Portal\\Server\\WebApi\\WebApi.csproj": {
+    "D:\\Job Portal\\Server\\webapi\\WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Job Portal\\Server\\WebApi\\WebApi.csproj",
+        "projectUniqueName": "D:\\Job Portal\\Server\\webapi\\WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "D:\\Job Portal\\Server\\WebApi\\WebApi.csproj",
+        "projectPath": "D:\\Job Portal\\Server\\webapi\\WebApi.csproj",
         "packagesPath": "C:\\Users\\ritiks\\.nuget\\packages\\",
-        "outputPath": "D:\\Job Portal\\Server\\WebApi\\obj\\",
+        "outputPath": "D:\\Job Portal\\Server\\webapi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ritiks\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,18 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Ocelot": {
+              "target": "Package",
+              "version": "[17.0.0, )"
+            },
+            "Ocelot.Cache.CacheManager": {
+              "target": "Package",
+              "version": "[17.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"

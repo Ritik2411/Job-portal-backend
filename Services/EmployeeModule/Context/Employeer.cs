@@ -2,7 +2,7 @@ using System;
 
 namespace EmployeeModule.Context{
     public class Employee{
-        public int id { get;set; }
+        public string id { get;set; }
 
         public string Organization { get;set; }
 

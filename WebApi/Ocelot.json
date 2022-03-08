@@ -1,0 +1,566 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/api/EmployeeDetail",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5000
+                }
+            ],
+            "UpstreamPathTemplate": "/EmployeeDetail",
+            "UpstreamHttpMethod": [ "Get", "Post" ],
+            
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/EmployeeDetail/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5000
+                }
+            ],
+
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+
+            "UpstreamPathTemplate": "/EmployeeDetail/{id}",
+            "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/VacancyDetail",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5000
+                }
+            ],
+            "UpstreamPathTemplate": "/VacancyDetail",
+            "UpstreamHttpMethod": [ "Get", "Post" ],
+            
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/VacancyDetail/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5000
+                }
+            ],
+
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+
+            "UpstreamPathTemplate": "/VacancyDetail/{id}",
+            "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/VacancyRequests",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5000
+                }
+            ],
+
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+
+            "UpstreamPathTemplate": "/VacancyRequests",
+            "UpstreamHttpMethod": [ "Get", "Post" ],
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/VacancyRequests/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5000
+                }
+            ],
+
+            "UpstreamPathTemplate": "/VacancyRequests/{id}",
+            "UpstreamHttpMethod": [ "Get" ],
+
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/Experience",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5004
+                }
+            ],
+
+            "UpstreamPathTemplate": "/Experience",
+            "UpstreamHttpMethod": [ "Post" ],
+
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/Experience/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5004
+                }
+            ],
+
+            "UpstreamPathTemplate": "/Experience/{id}",
+            "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+        
+        {
+            "DownstreamPathTemplate": "/api/JobSeeker",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5004
+                }
+            ],
+
+            "UpstreamPathTemplate": "/JobSeeker",
+            "UpstreamHttpMethod": [ "Post" ],
+
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/JobSeeker/{user_id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5004
+                }
+            ],
+
+            "UpstreamPathTemplate": "/JobSeeker/{user_id}",
+            "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/Qualification",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5004
+                }
+            ],
+
+            "UpstreamPathTemplate": "/Qualification",
+            "UpstreamHttpMethod": [ "Post" ],
+
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/Qualification/{user_id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5004
+                }
+            ],
+
+            "UpstreamPathTemplate": "/Qualification/{user_id}",
+            "UpstreamHttpMethod": [ "Get" ],
+
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/Qualification/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5004
+                }
+            ],
+
+            "UpstreamPathTemplate": "/Qualification/{id}",
+            "UpstreamHttpMethod": [ "Put", "Delete" ],
+
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            },
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/register",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5002
+                }
+            ],
+
+            "UpstreamPathTemplate": "/register",
+            "UpstreamHttpMethod": [ "Post" ],
+            
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/login",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5002
+                }
+            ],
+
+            "UpstreamPathTemplate": "/login",
+            "UpstreamHttpMethod": [ "Post" ],
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/ChangePassword",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5002
+                }
+            ],
+
+            "UpstreamPathTemplate": "/ChangePassword",
+            "UpstreamHttpMethod": [ "Post" ],
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/getAllUsers",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5002
+                }
+            ],
+
+            "UpstreamPathTemplate": "/getAllUsers",
+            "UpstreamHttpMethod": [ "Get" ],
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/getAllUsersById/{id}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5002
+                }
+            ],
+
+            "UpstreamPathTemplate": "/getAllUsersById/{id}",
+            "UpstreamHttpMethod": [ "Get" ],
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/signOut",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5002
+                }
+            ],
+
+            "UpstreamPathTemplate": "/signOut",
+            "UpstreamHttpMethod": [ "Get" ],
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        }
+    ],
+
+    "GlobalConfiguration": {
+        "BaseUrl": "http://localhost:5500"
+    },
+
+    "DangerousAcceptAnyServerCertificateValidator": true
+}

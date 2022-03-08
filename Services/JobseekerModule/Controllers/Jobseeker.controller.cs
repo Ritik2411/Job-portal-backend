@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JobseekerModule.controller{
     [ApiController]
-    [Route("[action]")]
+    [Route("api/[controller]")]
     public class JobSeekerController : ControllerBase{
         private readonly IJobSeeker _jobseeker;
         public JobSeekerController(IJobSeeker jobseeker){
@@ -19,17 +19,22 @@ namespace JobseekerModule.controller{
             return Ok(true);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> getJobseekerById([FromRoute]string id){
-            var result = await _jobseeker.GetJobSeekerByIdAsync(id);
+        [HttpGet("{user_id}")]
+        public async Task<IActionResult> getJobseekerById([FromRoute]string user_id){
+            var result = await _jobseeker.GetJobSeekerByIdAsync(user_id);
             return Ok(result);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> updateJobSeekerById([FromRoute]string id,[FromBody]JobSeekerModel jobSeekerModel){
-            await _jobseeker.UpdateJobSeekerById(id, jobSeekerModel);
+        [HttpPut("{user_id}")]
+        public async Task<IActionResult> updateJobSeekerById([FromRoute]string user_id,[FromBody]JobSeekerModel jobSeekerModel){
+            await _jobseeker.UpdateJobSeekerById(user_id, jobSeekerModel);
             return Ok(true);
-
         }   
+
+        [HttpDelete("{user_id}")]
+        public async Task<IActionResult> deleteJobSeekerById(string user_id){
+            await _jobseeker.DeleteJobSeekerByIdAsync(user_id);
+            return Ok(true);
+        }
     }
 }

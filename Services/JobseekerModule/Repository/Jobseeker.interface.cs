@@ -7,5 +7,6 @@ namespace JobseekerModule.repository{
         Task AddJobSeekerAsync(JobSeeker jobseekerdata);
         Task<JobSeekerModel> GetJobSeekerByIdAsync(string id);
         Task UpdateJobSeekerById(string user_id, JobSeekerModel jobSeekerModel);
+        Task DeleteJobSeekerByIdAsync(string user_id);
     }
 }

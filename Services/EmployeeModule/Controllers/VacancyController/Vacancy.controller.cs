@@ -1,11 +1,12 @@
 using System.Threading.Tasks;
+using EmployeeModule.Context;
 using EmployeeModule.Model;
 using EmployeeModule.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeModule.Controller{
     [ApiController]
-    [Route("[action]")]
+    [Route("api/[controller]")]
     public class VacancyDetailController : ControllerBase{
         private readonly IVacancyDetail _vacancy;
 
@@ -14,9 +15,9 @@ namespace EmployeeModule.Controller{
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddVacancyDetail(VacancyDetailModel vacancyDetailModel){
-            var result = await _vacancy.AddVacancyAsync(vacancyDetailModel);
-            return Ok(result);
+        public async Task<IActionResult> AddVacancyDetail(VacancyDetail vacancyDetailModel){
+            await _vacancy.AddVacancyAsync(vacancyDetailModel);
+            return Ok(true);
         }
 
         [HttpGet]
@@ -37,9 +38,9 @@ namespace EmployeeModule.Controller{
            return Ok(true);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> getVacancyById([FromRoute]int id){
-            var result = await _vacancy.getVacanyByIdAsync(id);
+        [HttpGet("{user_id}")]
+        public async Task<IActionResult> getVacancyById([FromRoute]string user_id){
+            var result = await _vacancy.getVacanyByUserIdAsync(user_id);
             return Ok(result);
         }
     }

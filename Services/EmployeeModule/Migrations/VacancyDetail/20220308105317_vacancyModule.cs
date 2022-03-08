@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EmployeeModule.Migrations.VacancyDetail
 {
-    public partial class vacanydetail : Migration
+    public partial class vacancyModule : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,15 +13,16 @@ namespace EmployeeModule.Migrations.VacancyDetail
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PublishedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    user_id = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PublishedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Published_Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    No_of_Vacancies = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Minimum_qualification = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Job_Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Experience = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    No_of_Vacancies = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Minimum_qualification = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Job_Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Experience = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Last_Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Min_Salary = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Max_Salary = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Min_Salary = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Max_Salary = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
