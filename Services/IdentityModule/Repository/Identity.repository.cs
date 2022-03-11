@@ -76,6 +76,11 @@ namespace IdentityModule.repository{
             return result;
         }
 
+        public async Task<IdentityModel> GetUserByEmailAsync(string email){
+            var result = await _user.FindByEmailAsync(email);
+            return result;
+        }
+
         public async Task SignOutAsync(){
             await _signmanager.SignOutAsync();
         }

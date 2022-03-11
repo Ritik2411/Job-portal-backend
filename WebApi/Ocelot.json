@@ -532,6 +532,32 @@
         },
 
         {
+            "DownstreamPathTemplate": "/api/getUserByEmail/{email}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5002
+                }
+            ],
+
+            "UpstreamPathTemplate": "/getUsersByEmail/{email}",
+            "UpstreamHttpMethod": [ "Get" ],
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "5s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+
+        {
             "DownstreamPathTemplate": "/api/signOut",
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [

@@ -20,7 +20,7 @@ namespace EmployeeModule.Repository{
                 PublishedBy = x.PublishedBy,
                 Published_Date = x.Published_Date,
                 No_of_Vacancies = x.No_of_Vacancies,
-                Minimum_qualification = x.No_of_Vacancies,
+                Minimum_qualification = x.Minimum_qualification,
                 Job_Description = x.Job_Description,
                 Experience = x.Experience,
                 Last_Date = x.Last_Date,
@@ -38,7 +38,7 @@ namespace EmployeeModule.Repository{
                 PublishedBy = x.PublishedBy,
                 Published_Date = x.Published_Date,
                 No_of_Vacancies = x.No_of_Vacancies,
-                Minimum_qualification = x.No_of_Vacancies,
+                Minimum_qualification = x.Minimum_qualification,
                 Job_Description = x.Job_Description,
                 Experience = x.Experience,
                 Last_Date = x.Last_Date,
@@ -55,7 +55,7 @@ namespace EmployeeModule.Repository{
                 PublishedBy = vacancyDetailModel.PublishedBy,
                 Published_Date = vacancyDetailModel.Published_Date,
                 No_of_Vacancies = vacancyDetailModel.No_of_Vacancies,
-                Minimum_qualification = vacancyDetailModel.No_of_Vacancies,
+                Minimum_qualification = vacancyDetailModel.Minimum_qualification,
                 Job_Description = vacancyDetailModel.Job_Description,
                 Experience = vacancyDetailModel.Experience,
                 Last_Date = vacancyDetailModel.Last_Date,
@@ -83,7 +83,7 @@ namespace EmployeeModule.Repository{
                 vacancies.PublishedBy = vacancyDetailModel.PublishedBy;
                 vacancies.Published_Date = vacancyDetailModel.Published_Date;
                 vacancies.No_of_Vacancies = vacancyDetailModel.No_of_Vacancies;
-                vacancies.Minimum_qualification = vacancyDetailModel.No_of_Vacancies;
+                vacancies.Minimum_qualification = vacancyDetailModel.Minimum_qualification;
                 vacancies.Job_Description = vacancyDetailModel.Job_Description;
                 vacancies.Experience = vacancyDetailModel.Experience;
                 vacancies.Last_Date = vacancyDetailModel.Last_Date;

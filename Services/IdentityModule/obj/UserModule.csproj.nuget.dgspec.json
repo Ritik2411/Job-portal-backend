@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Job Portal\\Server\\services\\identitymodule\\UserModule.csproj": {}
+    "D:\\Job Portal\\Server\\services\\IdentityModule\\UserModule.csproj": {}
   },
   "projects": {
-    "D:\\Job Portal\\Server\\services\\identitymodule\\UserModule.csproj": {
+    "D:\\Job Portal\\Server\\services\\IdentityModule\\UserModule.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Job Portal\\Server\\services\\identitymodule\\UserModule.csproj",
+        "projectUniqueName": "D:\\Job Portal\\Server\\services\\IdentityModule\\UserModule.csproj",
         "projectName": "UserModule",
-        "projectPath": "D:\\Job Portal\\Server\\services\\identitymodule\\UserModule.csproj",
+        "projectPath": "D:\\Job Portal\\Server\\services\\IdentityModule\\UserModule.csproj",
         "packagesPath": "C:\\Users\\ritiks\\.nuget\\packages\\",
-        "outputPath": "D:\\Job Portal\\Server\\services\\identitymodule\\obj\\",
+        "outputPath": "D:\\Job Portal\\Server\\services\\IdentityModule\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ritiks\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +45,10 @@
               "version": "[5.0.0, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[5.0.0, )"
             },

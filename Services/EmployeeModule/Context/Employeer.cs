@@ -12,9 +12,9 @@ namespace EmployeeModule.Context{
 
         public string CompanyPhone { get;set; }
 
-        public string NoOfEmployee { get;set; }
+        public int NoOfEmployee { get;set; }
 
-        public DateTime StartYear { get;set; }
+        public string StartYear { get;set; }
 
         public string about { get;set; }
 

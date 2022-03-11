@@ -44,8 +44,8 @@ namespace EmployeeModule.Migrations.VacancyDetail
                     b.Property<string>("Minimum_qualification")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("No_of_Vacancies")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("No_of_Vacancies")
+                        .HasColumnType("int");
 
                     b.Property<string>("PublishedBy")
                         .HasColumnType("nvarchar(max)");

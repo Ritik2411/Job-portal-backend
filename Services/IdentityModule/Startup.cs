@@ -57,7 +57,7 @@ namespace UserModule
 
             services.AddCors(options => {
                 options.AddDefaultPolicy(builderPolicy => {
-                    builderPolicy.AllowAnyOrigin().AllowAnyHeader().AllowAnyOrigin();
+                    builderPolicy.WithOrigins("http://localhost:4200").AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
                 });
             });
 
@@ -79,12 +79,12 @@ namespace UserModule
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "UserModule v1"));
             }
 
+            app.UseCors();
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseCors();
-            
             app.UseAuthentication();
             
             app.UseAuthorization();

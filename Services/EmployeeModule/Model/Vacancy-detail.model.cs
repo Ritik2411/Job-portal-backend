@@ -10,7 +10,7 @@ namespace EmployeeModule.Model{
         public DateTime Published_Date { get;set; }
         
         [Required]
-        public string No_of_Vacancies { get;set; } 
+        public int No_of_Vacancies { get;set; } 
         
         [Required]
         public string Minimum_qualification { get;set; } 

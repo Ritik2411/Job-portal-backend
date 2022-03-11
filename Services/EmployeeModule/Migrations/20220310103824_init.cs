@@ -1,9 +1,8 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EmployeeModule.Migrations
 {
-    public partial class employee : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,8 +15,8 @@ namespace EmployeeModule.Migrations
                     OrganizationType = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CompanyEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CompanyPhone = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    NoOfEmployee = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    StartYear = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    NoOfEmployee = table.Column<int>(type: "int", nullable: false),
+                    StartYear = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     about = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     createdBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },

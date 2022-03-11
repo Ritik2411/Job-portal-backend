@@ -15,9 +15,9 @@ namespace EmployeeModule.Model{
         public string CompanyPhone { get;set; }
 
         [Required]
-        public string NoOfEmployees { get;set; }
+        public int NoOfEmployees { get;set; }
         [Required]
-        public DateTime StartYear { get;set; } 
+        public string StartYear { get;set; } 
         [Required]    
         public string About { get;set;}
         [Required]

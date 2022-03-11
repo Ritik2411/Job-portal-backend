@@ -46,7 +46,7 @@ namespace EmployeeModule
             services.AddTransient<IVacancyRequests, VacancyRequestsRepository>();
             services.AddCors(options => {
                 options.AddDefaultPolicy(builderPolicy => {
-                    builderPolicy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                    builderPolicy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
                 });
             });
 
@@ -68,11 +68,11 @@ namespace EmployeeModule
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "EmployeeModule v1"));
             }
 
+            app.UseCors();
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            app.UseCors();
 
             app.UseAuthorization();
 

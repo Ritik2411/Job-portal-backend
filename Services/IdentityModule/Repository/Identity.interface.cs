@@ -12,5 +12,6 @@ namespace IdentityModule.repository{
 
         Task<IdentityModel> GetAllUsersByIdAsync(string id);
         Task SignOutAsync();
+        Task<IdentityModel> GetUserByEmailAsync(string email);
     }
 }

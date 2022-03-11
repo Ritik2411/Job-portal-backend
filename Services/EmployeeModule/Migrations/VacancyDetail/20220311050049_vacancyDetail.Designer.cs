@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeModule.Migrations.VacancyDetail
 {
     [DbContext(typeof(VacancyDetailContext))]
-    [Migration("20220308105317_vacancyModule")]
-    partial class vacancyModule
+    [Migration("20220311050049_vacancyDetail")]
+    partial class vacancyDetail
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,8 +46,8 @@ namespace EmployeeModule.Migrations.VacancyDetail
                     b.Property<string>("Minimum_qualification")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("No_of_Vacancies")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("No_of_Vacancies")
+                        .HasColumnType("int");
 
                     b.Property<string>("PublishedBy")
                         .HasColumnType("nvarchar(max)");

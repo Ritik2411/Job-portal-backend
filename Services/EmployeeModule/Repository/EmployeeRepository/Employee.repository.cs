@@ -64,7 +64,7 @@ namespace EmployeeModule.Repository{
 
             if(employee != null){
                 employee.Organization = employeeModel.Organization;
-                employee.OrganizationType = employee.OrganizationType;
+                employee.OrganizationType = employeeModel.OrgnizationType;
                 employee.CompanyEmail = employeeModel.CompanyEmail;
                 employee.CompanyPhone = employeeModel.CompanyPhone;
                 employee.NoOfEmployee = employeeModel.NoOfEmployees;

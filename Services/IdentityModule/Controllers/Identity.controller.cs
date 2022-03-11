@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using IdentityModule.models;
 using IdentityModule.repository;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace IdentityModule.controller{
     [ApiController]
@@ -27,11 +28,15 @@ namespace IdentityModule.controller{
         [HttpPost]
         public async Task<IActionResult> login([FromBody]LoginModel loginModel){
             var result = await _identity.LoginAsync(loginModel);
+            var reponse_data = new ResponseModel(){
+                msg = result
+            };
+
             if(string.IsNullOrEmpty(result)){
                 return Unauthorized();
             }
             else{
-                return Ok(result);
+                return Ok(reponse_data);
             }
         }
 
@@ -57,6 +62,12 @@ namespace IdentityModule.controller{
         public async Task<IActionResult> signOut(){
             await _identity.SignOutAsync();
             return Ok(true);
+        }
+
+        [HttpGet("{email}")]
+        public async Task<IActionResult> getUserByEmail(string email){
+            var result = await _identity.GetUserByEmailAsync(email);
+            return Ok(result);
         }
     }
 }

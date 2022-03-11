@@ -39,7 +39,7 @@ namespace JobseekerModule
             
             services.AddCors(options => {
                 options.AddDefaultPolicy(builderPolicy => {
-                    builderPolicy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                    builderPolicy.AllowAnyOrigin().AllowAnyHeader().AllowAnyOrigin();
                 });
             });
             
@@ -60,11 +60,11 @@ namespace JobseekerModule
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "JobseekerModule v1"));
             }
 
+            app.UseCors();
+            
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            app.UseCors();
 
             app.UseAuthorization();
 
