@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vSZHBGyyqayZsm1bO5CmJY9wQGJeL322RA4zdGer8GsMWLu2+SVL5hLIlUSFbCfJZsRnDQyP7X90/Z20cJ9lnw==",
+  "dgSpecHash": "Q0zXs3Xy5cAUwyjiOjejpvMMgJ6ePjQAx+8DLSMQYwvWqmqF3PLFYa4KhNrq3LEuXvjfHmKfIKaHGzqRIRYBUQ==",
   "success": true,
-  "projectFilePath": "D:\\Job Portal\\Server\\services\\IdentityModule\\UserModule.csproj",
+  "projectFilePath": "D:\\Job Portal\\Server\\Services\\IdentityModule\\UserModule.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ritiks\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ritiks\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.0\\microsoft.aspnetcore.authentication.jwtbearer.5.0.0.nupkg.sha512",

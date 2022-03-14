@@ -5,7 +5,7 @@ namespace EmployeeModule.Context{
         public VacancyRequestsContext(DbContextOptions<VacancyRequestsContext> options) : base(options){
 
         }
-
+        
         public DbSet<VacancyRequests> vacancyRequests { get;set; } 
     }
 }

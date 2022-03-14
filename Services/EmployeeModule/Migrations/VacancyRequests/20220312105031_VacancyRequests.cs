@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EmployeeModule.Migrations.VacancyRequests
 {
-    public partial class vacancyRequests : Migration
+    public partial class VacancyRequests : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,9 @@ namespace EmployeeModule.Migrations.VacancyRequests
                         .Annotation("SqlServer:Identity", "1, 1"),
                     vacancy_id = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     user_id = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    applied_on = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    applied_on = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    awaiting_approval = table.Column<bool>(type: "bit", nullable: false),
+                    approved = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

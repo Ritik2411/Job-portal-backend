@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BUjHOnpLMSHNlKZWze8PGFRo8YwiUxu7NKSqrZs5ihFZnTtfYDR44K0OcpGc9BH0QzJL69GiA3lWVG+j3iAx0Q==",
+  "dgSpecHash": "BNkmCeCNFxGrEdw1Kv17gy2qJxqCVyDa/x1thKWm6RV1qQ3EDoy+RhGRwqwLMoK5ZPRGkXm103HuNb+FnSxqPA==",
   "success": true,
-  "projectFilePath": "D:\\Job Portal\\Server\\services\\jobseekermodule\\JobseekerModule.csproj",
+  "projectFilePath": "D:\\Job Portal\\Server\\Services\\JobseekerModule\\JobseekerModule.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ritiks\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ritiks\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

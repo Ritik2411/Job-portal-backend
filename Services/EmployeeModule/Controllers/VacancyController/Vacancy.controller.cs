@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using EmployeeModule.Context;
 using EmployeeModule.Model;
 using EmployeeModule.Repository;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeModule.Controller{
@@ -39,9 +40,21 @@ namespace EmployeeModule.Controller{
         }
 
         [HttpGet("{user_id}")]
-        public async Task<IActionResult> getVacancyById([FromRoute]string user_id){
+        public async Task<IActionResult> getVacancyByUserId([FromRoute]string user_id){
             var result = await _vacancy.getVacanyByUserIdAsync(user_id);
             return Ok(result);
+        }
+
+        [HttpGet("vacancy/{id}")]
+        public async Task<IActionResult> getVacancyById([FromRoute]int id){
+            var result = await _vacancy.getVacanyByIdAsync(id);
+            return Ok(result);
+        }
+
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> updateVacancyPatch([FromRoute]int id, [FromBody]JsonPatchDocument vacancyModel){
+            await _vacancy.UpdateVacancyPatchAsync(id, vacancyModel);
+            return Ok(true);    
         }
     }
 }

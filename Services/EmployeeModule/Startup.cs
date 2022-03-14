@@ -30,7 +30,7 @@ namespace EmployeeModule
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             
             //Employee Table
             services.AddDbContext<EmployeeContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));

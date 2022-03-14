@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EmployeeModule.Context;
 using EmployeeModule.Model;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeModule.Repository{
@@ -31,8 +33,26 @@ namespace EmployeeModule.Repository{
             return vacancies;
         }
 
-        public async Task<List<VacancyDetail>> getVacanyByUserIdAsync(string id){
-            var vacancyData = await _vacancy.vacancies.Where(x => x.user_id == id).Select(x=>new VacancyDetail(){
+        public async Task<List<VacancyDetail>> getVacanyByUserIdAsync(string user_id){
+            var vacancyData = await _vacancy.vacancies.Where(x => x.user_id == user_id).Select(x=>new VacancyDetail(){
+                id = x.id,
+                user_id = x.user_id,
+                PublishedBy = x.PublishedBy,
+                Published_Date = x.Published_Date,
+                No_of_Vacancies = x.No_of_Vacancies,
+                Minimum_qualification = x.Minimum_qualification,
+                Job_Description = x.Job_Description,
+                Experience = x.Experience,
+                Last_Date = x.Last_Date,
+                Min_Salary = x.Min_Salary,
+                Max_Salary = x.Max_Salary 
+            }).ToListAsync();
+            
+            return vacancyData;
+        }
+
+        public async Task<List<VacancyDetail>> getVacanyByIdAsync(int id){
+            var vacancyData = await _vacancy.vacancies.Where(x => x.id == id).Select(x=>new VacancyDetail(){
                 id = x.id,
                 user_id = x.user_id,
                 PublishedBy = x.PublishedBy,
@@ -92,6 +112,15 @@ namespace EmployeeModule.Repository{
             }
 
             await _vacancy.SaveChangesAsync();
+        }
+
+        public async Task UpdateVacancyPatchAsync(int id, JsonPatchDocument vacancyModel){
+            var result = await _vacancy.vacancies.FindAsync(id);
+            if(result != null){
+                vacancyModel.ApplyTo(result);
+                await _vacancy.SaveChangesAsync();
+            }
+
         }
     }
 }

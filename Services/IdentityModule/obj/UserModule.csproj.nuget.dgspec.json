@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Job Portal\\Server\\services\\IdentityModule\\UserModule.csproj": {}
+    "D:\\Job Portal\\Server\\Services\\IdentityModule\\UserModule.csproj": {}
   },
   "projects": {
-    "D:\\Job Portal\\Server\\services\\IdentityModule\\UserModule.csproj": {
+    "D:\\Job Portal\\Server\\Services\\IdentityModule\\UserModule.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Job Portal\\Server\\services\\IdentityModule\\UserModule.csproj",
+        "projectUniqueName": "D:\\Job Portal\\Server\\Services\\IdentityModule\\UserModule.csproj",
         "projectName": "UserModule",
-        "projectPath": "D:\\Job Portal\\Server\\services\\IdentityModule\\UserModule.csproj",
+        "projectPath": "D:\\Job Portal\\Server\\Services\\IdentityModule\\UserModule.csproj",
         "packagesPath": "C:\\Users\\ritiks\\.nuget\\packages\\",
-        "outputPath": "D:\\Job Portal\\Server\\services\\IdentityModule\\obj\\",
+        "outputPath": "D:\\Job Portal\\Server\\Services\\IdentityModule\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ritiks\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Job Portal\\Server\\webapi\\WebApi.csproj": {}
+    "D:\\Job Portal\\Server\\WebApi\\WebApi.csproj": {}
   },
   "projects": {
-    "D:\\Job Portal\\Server\\webapi\\WebApi.csproj": {
+    "D:\\Job Portal\\Server\\WebApi\\WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Job Portal\\Server\\webapi\\WebApi.csproj",
+        "projectUniqueName": "D:\\Job Portal\\Server\\WebApi\\WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "D:\\Job Portal\\Server\\webapi\\WebApi.csproj",
+        "projectPath": "D:\\Job Portal\\Server\\WebApi\\WebApi.csproj",
         "packagesPath": "C:\\Users\\ritiks\\.nuget\\packages\\",
-        "outputPath": "D:\\Job Portal\\Server\\webapi\\obj\\",
+        "outputPath": "D:\\Job Portal\\Server\\WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ritiks\\AppData\\Roaming\\NuGet\\NuGet.Config",

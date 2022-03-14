@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeModule.Migrations.VacancyRequests
 {
     [DbContext(typeof(VacancyRequestsContext))]
-    [Migration("20220308121139_vacancyRequests")]
-    partial class vacancyRequests
+    [Migration("20220312105031_VacancyRequests")]
+    partial class VacancyRequests
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,6 +30,12 @@ namespace EmployeeModule.Migrations.VacancyRequests
 
                     b.Property<DateTime>("applied_on")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("approved")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("awaiting_approval")
+                        .HasColumnType("bit");
 
                     b.Property<string>("user_id")
                         .HasColumnType("nvarchar(max)");

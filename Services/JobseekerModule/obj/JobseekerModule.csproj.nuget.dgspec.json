@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Job Portal\\Server\\services\\jobseekermodule\\JobseekerModule.csproj": {}
+    "D:\\Job Portal\\Server\\Services\\JobseekerModule\\JobseekerModule.csproj": {}
   },
   "projects": {
-    "D:\\Job Portal\\Server\\services\\jobseekermodule\\JobseekerModule.csproj": {
+    "D:\\Job Portal\\Server\\Services\\JobseekerModule\\JobseekerModule.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Job Portal\\Server\\services\\jobseekermodule\\JobseekerModule.csproj",
+        "projectUniqueName": "D:\\Job Portal\\Server\\Services\\JobseekerModule\\JobseekerModule.csproj",
         "projectName": "JobseekerModule",
-        "projectPath": "D:\\Job Portal\\Server\\services\\jobseekermodule\\JobseekerModule.csproj",
+        "projectPath": "D:\\Job Portal\\Server\\Services\\JobseekerModule\\JobseekerModule.csproj",
         "packagesPath": "C:\\Users\\ritiks\\.nuget\\packages\\",
-        "outputPath": "D:\\Job Portal\\Server\\services\\jobseekermodule\\obj\\",
+        "outputPath": "D:\\Job Portal\\Server\\Services\\JobseekerModule\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ritiks\\AppData\\Roaming\\NuGet\\NuGet.Config",
