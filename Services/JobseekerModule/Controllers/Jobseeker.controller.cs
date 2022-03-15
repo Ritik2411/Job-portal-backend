@@ -19,21 +19,21 @@ namespace JobseekerModule.controller{
             return Ok(true);
         }
 
-        [HttpGet("{user_id}")]
-        public async Task<IActionResult> getJobseekerById([FromRoute]string user_id){
-            var result = await _jobseeker.GetJobSeekerByIdAsync(user_id);
+        [HttpGet("{id}")]
+        public async Task<IActionResult> getJobseekerById([FromRoute]string id){
+            var result = await _jobseeker.GetJobSeekerByUserIdAsync(id);
             return Ok(result);
         }
 
-        [HttpPut("{user_id}")]
-        public async Task<IActionResult> updateJobSeekerById([FromRoute]string user_id,[FromBody]JobSeekerModel jobSeekerModel){
-            await _jobseeker.UpdateJobSeekerById(user_id, jobSeekerModel);
+        [HttpPut("{id}")]
+        public async Task<IActionResult> updateJobSeekerById([FromRoute]string id,[FromBody]JobSeekerModel jobSeekerModel){
+            await _jobseeker.UpdateJobSeekerById(id, jobSeekerModel);
             return Ok(true);
         }   
 
-        [HttpDelete("{user_id}")]
-        public async Task<IActionResult> deleteJobSeekerById(string user_id){
-            await _jobseeker.DeleteJobSeekerByIdAsync(user_id);
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> deleteJobSeekerById(string id){
+            await _jobseeker.DeleteJobSeekerByUserIdAsync(id);
             return Ok(true);
         }
     }

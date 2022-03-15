@@ -2,7 +2,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace JobseekerModule.models{
     public class ExperienceModel{
-        [Required]
         public string user_id { get;set; }
         [Required]
         public string company_name { get;set; }

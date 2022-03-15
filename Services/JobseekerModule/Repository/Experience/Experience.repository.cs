@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -34,7 +35,7 @@ namespace JobseekerModule.repository{
                  company_name = x.company_name,
                  start_year = x.start_year,
                  end_year = x.end_year,
-                 CompanyUrl = x.company_name,
+                 CompanyUrl = x.CompanyUrl,
                  Designation = x.Designation,
                  JobDescription = x.JobDescription
             }).ToListAsync();
@@ -46,12 +47,12 @@ namespace JobseekerModule.repository{
             var result = await _context.experience.FindAsync(id);
             if(result != null){
                 result.company_name = experienceModel.company_name;
-                result.CompanyUrl = experienceModel.CompanyUrl;
                 result.Designation = experienceModel.Designation;
                 result.end_year = experienceModel.end_year;
                 result.start_year = experienceModel.start_year;
                 result.JobDescription = experienceModel.JobDescription;
-            
+                result.CompanyUrl = experienceModel.CompanyUrl;
+    
                 await _context.SaveChangesAsync();
             }
         }

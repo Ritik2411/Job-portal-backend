@@ -3,12 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace JobseekerModule.models{
     public class JobSeekerModel{
-        
-        [Required]
+        public string id { get;set; }
         public string first_name { get;set; }
-        [Required]
+
         public string last_name { get;set; }
-        [Required]
         [EmailAddress]
         public string email { get;set; }
         [Required]
@@ -21,6 +19,6 @@ namespace JobseekerModule.models{
         [Required]
         public string expected_salary { get;set; }
         [Required]
-        public DateTime dob { get;set; } 
+        public string dob { get;set; } 
     }
 }

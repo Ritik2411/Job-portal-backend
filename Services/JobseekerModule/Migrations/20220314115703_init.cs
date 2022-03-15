@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace JobseekerModule.Migrations
 {
@@ -19,7 +18,7 @@ namespace JobseekerModule.Migrations
                     address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     total_expericence = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     expected_salary = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    dob = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    dob = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

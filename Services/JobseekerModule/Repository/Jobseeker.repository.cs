@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using JobseekerModule.context;
 using JobseekerModule.models;
+using Microsoft.EntityFrameworkCore;
 
 namespace JobseekerModule.repository{
     public class JobseekerRepository : IJobSeeker{
@@ -30,24 +31,24 @@ namespace JobseekerModule.repository{
             await _context.SaveChangesAsync();
         }
 
-        public async Task<JobSeekerModel> GetJobSeekerByIdAsync(string user_id){
-            var data = await _context.jobSeeker.FindAsync(user_id);
+        public async Task<List<JobSeekerModel>> GetJobSeekerByUserIdAsync(string id){
+            var data = await _context.jobSeeker.Where(x => x.id == id).Select((x) => new JobSeekerModel(){
+                id = x.id,
+                first_name = x.first_name,
+                last_name = x.last_name,
+                email = x.email,
+                phone = x.phone,
+                address = x.address,
+                total_expericence = x.total_expericence,
+                expected_salary = x.expected_salary,
+                dob = x.dob
+            }).ToListAsync();
 
-            var jobseeker = new JobSeekerModel(){
-                first_name = data.first_name,
-                last_name = data.last_name,
-                email = data.email,
-                phone = data.phone,
-                address = data.address,
-                total_expericence = data.total_expericence,
-                expected_salary = data.expected_salary,
-                dob = data.dob
-            };
-           return jobseeker;            
+           return data;            
         }
 
-        public async Task UpdateJobSeekerById(string user_id, JobSeekerModel jobSeekerModel){
-            var result = await _context.jobSeeker.FindAsync(user_id);
+        public async Task UpdateJobSeekerById(string id, JobSeekerModel jobSeekerModel){
+            var result = await _context.jobSeeker.FindAsync(id);
             
             if(result != null){
                 result.address = jobSeekerModel.address;
@@ -63,9 +64,9 @@ namespace JobseekerModule.repository{
             }
         }
 
-        public async Task DeleteJobSeekerByIdAsync(string user_id){
+        public async Task DeleteJobSeekerByUserIdAsync(string id){
             var jobseeker = new JobSeeker(){
-                id = user_id
+                id = id
             };
 
             _context.jobSeeker.Remove(jobseeker);

@@ -2,7 +2,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace JobseekerModule.context{
     public class QualificationModel{
-        [Required]
         public string userId { get;set; }
         [Required]
         public string qualification { get;set; }

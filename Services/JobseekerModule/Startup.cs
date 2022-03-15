@@ -39,7 +39,7 @@ namespace JobseekerModule
             
             services.AddCors(options => {
                 options.AddDefaultPolicy(builderPolicy => {
-                    builderPolicy.AllowAnyOrigin().AllowAnyHeader().AllowAnyOrigin();
+                    builderPolicy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
                 });
             });
             
