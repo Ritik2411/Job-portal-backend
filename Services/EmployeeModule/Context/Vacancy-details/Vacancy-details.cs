@@ -23,5 +23,7 @@ namespace EmployeeModule.Context{
         public string Min_Salary{ get;set; }  
         
         public string Max_Salary { get;set; } 
+        
+        public int no_of_applications { get;set; }
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EmployeeModule.Migrations.VacancyDetail
 {
-    public partial class vacancyDetail : Migration
+    public partial class VacancyDetail : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -22,7 +22,8 @@ namespace EmployeeModule.Migrations.VacancyDetail
                     Experience = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Last_Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Min_Salary = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Max_Salary = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Max_Salary = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    no_of_applications = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -27,7 +27,8 @@ namespace EmployeeModule.Repository{
                 Experience = x.Experience,
                 Last_Date = x.Last_Date,
                 Min_Salary = x.Min_Salary,
-                Max_Salary = x.Max_Salary 
+                Max_Salary = x.Max_Salary ,
+                no_of_applications = x.no_of_applications
             }).ToListAsync();
 
             return vacancies;
@@ -45,7 +46,8 @@ namespace EmployeeModule.Repository{
                 Experience = x.Experience,
                 Last_Date = x.Last_Date,
                 Min_Salary = x.Min_Salary,
-                Max_Salary = x.Max_Salary 
+                Max_Salary = x.Max_Salary,
+                no_of_applications = x.no_of_applications
             }).ToListAsync();
             
             return vacancyData;
@@ -63,7 +65,8 @@ namespace EmployeeModule.Repository{
                 Experience = x.Experience,
                 Last_Date = x.Last_Date,
                 Min_Salary = x.Min_Salary,
-                Max_Salary = x.Max_Salary 
+                Max_Salary = x.Max_Salary,
+                no_of_applications =x.no_of_applications
             }).ToListAsync();
             
             return vacancyData;
@@ -80,7 +83,7 @@ namespace EmployeeModule.Repository{
                 Experience = vacancyDetailModel.Experience,
                 Last_Date = vacancyDetailModel.Last_Date,
                 Min_Salary = vacancyDetailModel.Min_Salary,
-                Max_Salary = vacancyDetailModel.Max_Salary 
+                Max_Salary = vacancyDetailModel.Max_Salary,
             };
 
             _vacancy.vacancies.Add(vacancy);
@@ -120,7 +123,6 @@ namespace EmployeeModule.Repository{
                 vacancyModel.ApplyTo(result);
                 await _vacancy.SaveChangesAsync();
             }
-
         }
     }
 }

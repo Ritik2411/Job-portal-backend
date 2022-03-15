@@ -17,7 +17,8 @@ namespace EmployeeModule.Migrations.VacancyRequests
                     user_id = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     applied_on = table.Column<DateTime>(type: "datetime2", nullable: false),
                     awaiting_approval = table.Column<bool>(type: "bit", nullable: false),
-                    approved = table.Column<bool>(type: "bit", nullable: false)
+                    approved = table.Column<bool>(type: "bit", nullable: false),
+                    user_name = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

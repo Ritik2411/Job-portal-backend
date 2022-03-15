@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeModule.Migrations.VacancyDetail
 {
     [DbContext(typeof(VacancyDetailContext))]
-    [Migration("20220311050049_vacancyDetail")]
-    partial class vacancyDetail
+    [Migration("20220315064148_VacancyDetail")]
+    partial class VacancyDetail
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,6 +54,9 @@ namespace EmployeeModule.Migrations.VacancyDetail
 
                     b.Property<DateTime>("Published_Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("no_of_applications")
+                        .HasColumnType("int");
 
                     b.Property<string>("user_id")
                         .HasColumnType("nvarchar(max)");

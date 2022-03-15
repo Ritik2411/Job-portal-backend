@@ -53,6 +53,9 @@ namespace EmployeeModule.Migrations.VacancyDetail
                     b.Property<DateTime>("Published_Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("no_of_applications")
+                        .HasColumnType("int");
+
                     b.Property<string>("user_id")
                         .HasColumnType("nvarchar(max)");
 

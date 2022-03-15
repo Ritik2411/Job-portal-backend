@@ -19,7 +19,8 @@ namespace EmployeeModule.Repository{
                 vacancy_id = vacancyRequestsModel.vacancy_id,
                 applied_on = vacancyRequestsModel.applied_on,
                 awaiting_approval = vacancyRequestsModel.awaiting_approval,
-                approved = vacancyRequestsModel.approved
+                approved = vacancyRequestsModel.approved,
+                user_name = vacancyRequestsModel.user_name
             }; 
 
             _context.vacancyRequests.Add(data);
@@ -33,7 +34,8 @@ namespace EmployeeModule.Repository{
                vacancy_id = x.vacancy_id,
                applied_on = x.applied_on,
                awaiting_approval = x.awaiting_approval,
-               approved = x.approved
+               approved = x.approved,
+               user_name = x.user_name
            }).ToListAsync();
 
            return result;
@@ -46,7 +48,8 @@ namespace EmployeeModule.Repository{
                 vacancy_id = x.vacancy_id,
                 applied_on = x.applied_on,
                 awaiting_approval = x.awaiting_approval,
-                approved = x.approved
+                approved = x.approved,
+                user_name = x.user_name
             }).ToListAsync();
 
             return result;

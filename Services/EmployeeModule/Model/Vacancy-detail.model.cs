@@ -29,5 +29,7 @@ namespace EmployeeModule.Model{
         
         [Required]
         public string Max_Salary { get;set; } 
+
+        public int no_of_applications { get;set; } 
     }
 }

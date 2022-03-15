@@ -8,5 +8,6 @@ namespace EmployeeModule.Context{
         public DateTime applied_on { get;set; }
         public bool awaiting_approval { get;set; }
         public bool approved { get;set; }
+        public string user_name { get;set; }
     }
 }

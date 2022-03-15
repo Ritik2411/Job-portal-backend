@@ -38,6 +38,9 @@ namespace EmployeeModule.Migrations.VacancyRequests
                     b.Property<string>("user_id")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("user_name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("vacancy_id")
                         .HasColumnType("nvarchar(max)");
 
