@@ -34,14 +34,14 @@ namespace IdentityModule.repository{
         }
 
         public async Task<string> LoginAsync(LoginModel loginModel){
-            var result = await _signmanager.PasswordSignInAsync(loginModel.Email, loginModel.password, false, false);
+            var result = await _signmanager.PasswordSignInAsync(loginModel.Username, loginModel.password, false, false);
 
             if(!result.Succeeded){
                 return null;
             }
             else{
                 var authClaims = new List<Claim>{
-                    new Claim(ClaimTypes.Name, loginModel.Email),
+                    new Claim(ClaimTypes.Name, loginModel.Username),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                 };
 
@@ -76,11 +76,19 @@ namespace IdentityModule.repository{
             return result;
         }
 
-        public async Task<IdentityModel> GetUserByEmailAsync(string email){
-            var result = await _user.FindByEmailAsync(email);
+        public async Task<IdentityModel> GetUserByUsernameAsync(string userName){
+            var result = await _user.FindByNameAsync(userName);
             return result;
         }
 
+        public async Task deleteUserAsync(string userName){
+            var data = await _user.FindByNameAsync(userName);
+
+            if(data != null){
+                await _user.DeleteAsync(data);
+            }
+        }
+        
         public async Task SignOutAsync(){
             await _signmanager.SignOutAsync();
         }

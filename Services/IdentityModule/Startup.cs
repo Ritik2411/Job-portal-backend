@@ -57,7 +57,7 @@ namespace UserModule
 
             services.AddCors(options => {
                 options.AddDefaultPolicy(builderPolicy => {
-                    builderPolicy.WithOrigins("http://localhost:4200").AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                    builderPolicy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
                 });
             });
 

@@ -53,7 +53,7 @@ namespace IdentityModule.controller{
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> getAllUsersById([FromRoute]string id){
+        public async Task<IActionResult> getUsersById([FromRoute]string id){
             var result = await _identity.GetAllUsersByIdAsync(id);
             return Ok(result);
         }
@@ -64,10 +64,16 @@ namespace IdentityModule.controller{
             return Ok(true);
         }
 
-        [HttpGet("{email}")]
-        public async Task<IActionResult> getUserByEmail(string email){
-            var result = await _identity.GetUserByEmailAsync(email);
+        [HttpGet("{user}")]
+        public async Task<IActionResult> getUserByUsername(string user){
+            var result = await _identity.GetUserByUsernameAsync(user);
             return Ok(result);
+        }
+
+        [HttpDelete("{user}")]
+        public async Task<IActionResult> deleteUser(string user){
+            await _identity.deleteUserAsync(user);
+            return Ok(true);
         }
     }
 }

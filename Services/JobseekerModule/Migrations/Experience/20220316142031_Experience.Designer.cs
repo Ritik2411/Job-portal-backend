@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JobseekerModule.Migrations.Experience
 {
     [DbContext(typeof(ExperienceContext))]
-    [Migration("20220306110621_expeeience")]
-    partial class expeeience
+    [Migration("20220316142031_Experience")]
+    partial class Experience
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

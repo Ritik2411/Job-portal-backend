@@ -1,3 +1,5 @@
+using System;
+
 namespace JobseekerModule.context{
     public class Experience{
         public int Id { get;set; }

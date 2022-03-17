@@ -2,7 +2,7 @@
 
 namespace JobseekerModule.Migrations.Experience
 {
-    public partial class expeeience : Migration
+    public partial class Experience : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

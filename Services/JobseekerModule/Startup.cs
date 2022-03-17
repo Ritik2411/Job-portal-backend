@@ -32,11 +32,13 @@ namespace JobseekerModule
             services.AddDbContext<JobseekerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));    
             services.AddDbContext<QualificationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));
             services.AddDbContext<ExperienceContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));
-            
+            services.AddDbContext<CvContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));
+
             services.AddTransient<IJobSeeker, JobseekerRepository>();
             services.AddTransient<IQualification, QualificationRepository>();
             services.AddTransient<IExperience, ExperienceRepository>();
-            
+            services.AddTransient<ICv,CvRepository>();
+
             services.AddCors(options => {
                 options.AddDefaultPolicy(builderPolicy => {
                     builderPolicy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();

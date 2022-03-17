@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JobseekerModule.Migrations
 {
     [DbContext(typeof(JobseekerContext))]
-    [Migration("20220314115703_init")]
+    [Migration("20220316140352_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
