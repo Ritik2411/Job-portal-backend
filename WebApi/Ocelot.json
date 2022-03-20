@@ -20,7 +20,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
@@ -51,7 +51,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
@@ -76,18 +76,6 @@
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "Bearer",
                 "AllowedScopes": []
-            },
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "5s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
             }
         },
 
@@ -135,7 +123,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
@@ -166,7 +154,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
@@ -192,18 +180,6 @@
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "Bearer",
                 "AllowedScopes": []
-            },
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "5s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
             }
         },
 
@@ -228,7 +204,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
@@ -259,7 +235,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
@@ -290,7 +266,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
@@ -321,7 +297,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
@@ -352,7 +328,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
@@ -383,7 +359,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
@@ -414,7 +390,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
@@ -445,7 +421,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
@@ -476,7 +452,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
@@ -507,7 +483,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
@@ -533,7 +509,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
@@ -559,7 +535,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
@@ -585,7 +561,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
@@ -611,7 +587,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
@@ -655,7 +631,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
@@ -681,7 +657,7 @@
             "RateLimitOptions": {
                 "ClientWhitelist": [],
                 "EnableRateLimiting": true,
-                "Period": "5s",
+                "Period": "1s",
                 "PeriodTimespan": 1,
                 "Limit": 1
             },
