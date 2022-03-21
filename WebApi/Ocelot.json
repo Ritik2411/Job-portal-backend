@@ -95,11 +95,7 @@
             },
 
             "UpstreamPathTemplate": "/VacancyDetail/{id}",
-            "UpstreamHttpMethod": [ "Get", "Put", "Delete", "Patch" ],
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
-            }
+            "UpstreamHttpMethod": [ "Get", "Put", "Delete", "Patch" ]
         },
 
         {
@@ -118,19 +114,7 @@
             },
 
             "UpstreamPathTemplate": "/VacancyDetail/vacancy/{id}",
-            "UpstreamHttpMethod": [ "Get" ],
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
-            }
+            "UpstreamHttpMethod": [ "Get" ]
         },
 
         {
@@ -149,19 +133,7 @@
             },
 
             "UpstreamPathTemplate": "/VacancyRequests",
-            "UpstreamHttpMethod": [ "Get", "Post" ],
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
-            }
+            "UpstreamHttpMethod": [ "Get", "Post" ]
         },
 
         {
@@ -199,18 +171,6 @@
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "Bearer",
                 "AllowedScopes": []
-            },
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
             }
         },
 
@@ -261,18 +221,6 @@
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "Bearer",
                 "AllowedScopes": []
-            },
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
             }
         },
         
@@ -292,18 +240,6 @@
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "Bearer",
                 "AllowedScopes": []
-            },
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
             }
         },
 
@@ -323,18 +259,6 @@
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "Bearer",
                 "AllowedScopes": []
-            },
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
             }
         },
 
@@ -385,18 +309,6 @@
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "Bearer",
                 "AllowedScopes": []
-            },
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
             }
         },
 
@@ -447,18 +359,6 @@
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "Bearer",
                 "AllowedScopes": []
-            },
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
             }
         },
 
@@ -478,18 +378,6 @@
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "Bearer",
                 "AllowedScopes": []
-            },
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
             }
         },
 

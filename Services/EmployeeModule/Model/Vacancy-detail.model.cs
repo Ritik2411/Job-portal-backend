@@ -3,10 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EmployeeModule.Model{
     public class VacancyDetailModel{
-        [Required]
         public string PublishedBy { get;set; } 
         
-        [Required]
         public DateTime Published_Date { get;set; }
         
         [Required]
@@ -21,7 +19,6 @@ namespace EmployeeModule.Model{
         [Required]
         public string Experience { get;set; } 
         
-        [Required]
         public DateTime Last_Date { get;set; }
 
         [Required]

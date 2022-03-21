@@ -14,36 +14,42 @@ namespace EmployeeModule.Controller{
          }    
 
          [HttpPost]   
+         //Calls AddVacancyRequestsAsync from IVacancyRequests.
          public async Task<IActionResult> AddVacancyRequests(VacancyRequests vacancyRequests){
              await _requests.AddVacancyRequestsAsync(vacancyRequests);
              return Ok(true);
          }
 
          [HttpGet]   
+         //Calls GetVacancyRequestsAsync from IVacancyRequests.
          public async Task<IActionResult> getVacancyRequests(){
              var result = await _requests.GetVacancyRequestsAsync();
              return Ok(result);
          }
 
-         [HttpGet("{user_id}")]   
+         [HttpGet("{user_id}")] 
+         //Calls GetVacancyRequestsByUserIdAsync from IVacancyRequests.   
          public async Task<IActionResult> getVacancyRequestsByUserId(string user_id){
              var result = await _requests.GetVacancyRequestsByUserIdAsync(user_id);
              return Ok(result);
          }
 
-         [HttpGet("vacancies/{id}")]   
+         [HttpGet("vacancies/{id}")]
+         //Calls GetVacancyRequestsByIdAsync from IVacancyRequests.   
          public async Task<IActionResult> getVacancyRequestsById(int id){
              var result = await _requests.GetVacancyRequestsByIdAsync(id);
              return Ok(result);
          }
 
          [HttpDelete("{id}")]
+         //Calls DeleteVacancyRequestsAsync from IVacancyRequests.
          public async Task<IActionResult> deleteVacancyRequests(int id){
              await _requests.DeleteVacancyRequestsAsync(id);
              return Ok(true);
          }
 
          [HttpPatch("vacancies/{id}")]
+         //Calls VacancyPatchUpdateByIdAsync from IVacancyRequests.   
          public async Task<IActionResult> updateVacancyPatchById(int id, JsonPatchDocument vacancyRequest){
              await _requests.VacancyPatchUpdateByIdAsync(id, vacancyRequest);
              return Ok(true);

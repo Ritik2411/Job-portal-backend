@@ -1,6 +1,7 @@
 using System;
 
 namespace EmployeeModule.Context{
+    //Columns for employee table
     public class Employee{
         public string id { get;set; }
 

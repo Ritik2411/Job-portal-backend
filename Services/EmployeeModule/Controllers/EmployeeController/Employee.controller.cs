@@ -14,6 +14,7 @@ namespace EmployeeModule.Controller{
         }
 
         [HttpPost]
+        //Calls AddEmployeeAsync from IEmployee.
         public async Task<IActionResult> AddEmployee([FromBody]Employee employeeModel){
             var result = await _employee.AddEmployeeAsync(employeeModel);
             if(result != null){
@@ -25,6 +26,7 @@ namespace EmployeeModule.Controller{
         }
 
         [HttpGet]
+        //Calls AddEmployeeAsync from IEmployee.
         public async Task<IActionResult> getAllEmployee(){
             var result = await _employee.getAllEmployeeAsync();
             if(result != null){
@@ -34,20 +36,23 @@ namespace EmployeeModule.Controller{
                 return Unauthorized();
             }
         }
-
+        
         [HttpDelete("{id}")]
+        //Calls DeleteEmployeeAsync from IEmployee.
         public async Task<IActionResult> DeleteEmployee([FromRoute]string id){
             await _employee.DeleteEmployeeAsync(id);    
             return Ok(true);
         }
-
+        
         [HttpPut("{id}")]
+        //Calls UpdateEmployeeAync from IEmployee.
         public async Task<IActionResult> updateEmployee([FromRoute]string id, [FromBody]EmployeeModel employeeModel){
             await _employee.UpdateEmployeeAync(id,employeeModel);
             return Ok(true);
         }
 
         [HttpGet("{id}")]
+        //Calls getEmlpoyeeByIdAsync from IEmployee.
         public async Task<IActionResult> getEmployeeById([FromRoute]string id){
             var result = await _employee.getEmlpoyeeByIdAsync(id);
             return Ok(result);

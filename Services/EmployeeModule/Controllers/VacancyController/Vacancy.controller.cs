@@ -16,42 +16,49 @@ namespace EmployeeModule.Controller{
         }
 
         [HttpPost]
+        //Calls AddVacancyAsync from IVacancyDetail.
         public async Task<IActionResult> AddVacancyDetail(VacancyDetail vacancyDetailModel){
             await _vacancy.AddVacancyAsync(vacancyDetailModel);
             return Ok(true);
         }
 
         [HttpGet]
+        //Calls getVacancyListAsync from IVacancyDetail.
         public async Task<IActionResult> getVacancy(){
             var result = await _vacancy.getVacancyListAsync();
             return Ok(result);
         }
 
         [HttpDelete("{id}")]
+        //Calls deleteVacancyAsync from IVacancyDetail.
         public async Task<IActionResult> deleteVacancy([FromRoute]int id){
             await _vacancy.deleteVacancyAsync(id);
             return Ok(true);
         }
 
         [HttpPut("{id}")]
+        //Calls updateVacancyAsync from IVacancyDetail.
         public async Task<IActionResult> updateVacancy([FromRoute]int id,[FromBody]VacancyDetailModel vacancyDetailModel){
            await _vacancy.updateVacancyAsync(id, vacancyDetailModel);
            return Ok(true);
         }
 
         [HttpGet("{user_id}")]
+        //Calls updateVacancyAsync from IVacancyDetail.        
         public async Task<IActionResult> getVacancyByUserId([FromRoute]string user_id){
             var result = await _vacancy.getVacanyByUserIdAsync(user_id);
             return Ok(result);
         }
 
         [HttpGet("vacancy/{id}")]
+        //Calls getVacanyByIdAsync from IVacancyDetail.
         public async Task<IActionResult> getVacancyById([FromRoute]int id){
             var result = await _vacancy.getVacanyByIdAsync(id);
             return Ok(result);
         }
 
         [HttpPatch("{id}")]
+        //Calls UpdateVacancyPatchAsync from IVacancyDetail.
         public async Task<IActionResult> updateVacancyPatch([FromRoute]int id, [FromBody]JsonPatchDocument vacancyModel){
             await _vacancy.UpdateVacancyPatchAsync(id, vacancyModel);
             return Ok(true);    

@@ -24,7 +24,7 @@ namespace JobseekerModule.repository{
             if(file.Length < 900000 && file.ContentType == "application/pdf"){
                 try{
                     var extension = "." + file.FileName.Split(".")[file.FileName.Split(".").Length - 1];
-                    fileName = file.FileName.Split(".")[0] + DateTime.Now.Ticks + extension;
+                    fileName = file.FileName.Split(".")[0] + '-' +DateTime.Now.Ticks + extension;
 
                     var pathBuilt = Path.Combine(Directory.GetCurrentDirectory() + "\\Upload\\CVs");
                     if(!Directory.Exists(pathBuilt)){

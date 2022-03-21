@@ -32,18 +32,20 @@ namespace EmployeeModule
 
             services.AddControllers().AddNewtonsoftJson();
             
-            //Employee Table
+            //Add Employee Context
             services.AddDbContext<EmployeeContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));
             
-            //Vacancy Detail Table
+            //Add Vacancy Detail Context
             services.AddDbContext<VacancyDetailContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));
 
-            //Vacancy Requests Table
+            //Add Vacancy Requests Context
             services.AddDbContext<VacancyRequestsContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));
             
             services.AddTransient<IEmployee, EmployeeRepository>();    
             services.AddTransient<IVacancyDetail, VacancyDetailRepository>();                
             services.AddTransient<IVacancyRequests, VacancyRequestsRepository>();
+            
+            //Add CORS policy to allow any Origin, Header, Methods
             services.AddCors(options => {
                 options.AddDefaultPolicy(builderPolicy => {
                     builderPolicy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
@@ -53,8 +55,6 @@ namespace EmployeeModule
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EmployeeModule", Version = "v1" });
-
-                //c.AddSecurityDefinition();
             });
         }
 

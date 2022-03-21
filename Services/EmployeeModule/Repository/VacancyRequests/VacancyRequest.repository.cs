@@ -7,12 +7,14 @@ using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeModule.Repository{
+    //VacancyRequestsRepository implements IVacancyRequests and declares all its methods.
     public class VacancyRequestsRepository : IVacancyRequests{
         private readonly VacancyRequestsContext _context;
         public VacancyRequestsRepository(VacancyRequestsContext vacancyRequestsContext){
             _context = vacancyRequestsContext;
         }
 
+        //Add vacancy requests from the jobseeker.
         public async Task AddVacancyRequestsAsync(VacancyRequests vacancyRequestsModel){
             var data = new VacancyRequests(){
                 user_id = vacancyRequestsModel.user_id,
@@ -27,6 +29,7 @@ namespace EmployeeModule.Repository{
             await _context.SaveChangesAsync();
         }
 
+        //Get all vacancies requests from the jobseeker.
         public async Task<List<VacancyRequests>> GetVacancyRequestsAsync(){
            var result = await _context.vacancyRequests.Select(x => new VacancyRequests(){
                id = x.id,
@@ -41,6 +44,7 @@ namespace EmployeeModule.Repository{
            return result;
         }
 
+        //Get vacancies requests by jobseeker user_id. 
         public async Task<List<VacancyRequests>> GetVacancyRequestsByUserIdAsync(string user_id){
             var result = await _context.vacancyRequests.Where(x => x.user_id == user_id).Select(x => new VacancyRequests(){
                 id = x.id,
@@ -55,11 +59,13 @@ namespace EmployeeModule.Repository{
             return result;
         }
 
+        //Get vacancies requests by ID(PK).
         public async Task<VacancyRequests> GetVacancyRequestsByIdAsync(int id){
             var result = await _context.vacancyRequests.FindAsync(id);
             return result;
         }
 
+        //Delete vacancies requests by ID(PK).
         public async Task DeleteVacancyRequestsAsync(int id){
             var vacancy = new VacancyRequests(){
                 id = id
@@ -69,6 +75,7 @@ namespace EmployeeModule.Repository{
             await _context.SaveChangesAsync();
         }
 
+        //Updates particular key-value pair from vacancy request by ID(PK).
         public async Task VacancyPatchUpdateByIdAsync(int id, JsonPatchDocument vacancyRequest){
             var result = await _context.vacancyRequests.FindAsync(id);
             if(result != null){

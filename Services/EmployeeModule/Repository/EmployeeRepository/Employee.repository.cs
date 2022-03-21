@@ -6,15 +6,17 @@ using EmployeeModule.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeModule.Repository{
-    public class EmployeeRepository : IEmployee{
-        private readonly EmployeeContext _employee;
-        private readonly VacancyDetailContext _vacancy;
 
-        public EmployeeRepository(EmployeeContext employee, VacancyDetailContext vacancy){
+    //EmployeeRepository implements IEmployee and defines all its methods.
+    public class EmployeeRepository : IEmployee{
+        //Used to create an instance of class EmployeeContext to access its members.
+        private readonly EmployeeContext _employee;
+
+        public EmployeeRepository(EmployeeContext employee){
             _employee = employee;
-            _vacancy = vacancy;
         }
 
+        //Handles adding an employee    
         public async Task<Employee> AddEmployeeAsync(Employee employeeModel){
             var employee = new Employee(){
                 id = employeeModel.id,
@@ -33,6 +35,7 @@ namespace EmployeeModule.Repository{
             return employee;
         }
 
+        //Provides list of all employees.
         public async Task<List<Employee>> getAllEmployeeAsync(){
             var result = await _employee.employee.Select(x => new Employee(){
                 id = x.id,
@@ -49,6 +52,7 @@ namespace EmployeeModule.Repository{
             return result;
         }
 
+        // Deletes employee based on id(PK).
         public async Task DeleteEmployeeAsync(string id){
             var employee = new Employee(){
                 id = id
@@ -59,6 +63,7 @@ namespace EmployeeModule.Repository{
             await _employee.SaveChangesAsync();
         }    
 
+        // Updates employee based on id(PK) and adds new data that is being received from the request.
         public async Task UpdateEmployeeAync(string id,EmployeeModel employeeModel){
             var employee = await _employee.employee.FindAsync(id);
 
@@ -76,6 +81,7 @@ namespace EmployeeModule.Repository{
             }
         }
 
+        //Provides detail of a particular employee based on their unique user_id.
         public async Task<List<Employee>> getEmlpoyeeByIdAsync(string id){
             var result = await _employee.employee.Where(x => x.id == id).Select(x => new Employee(){
                 id = x.id,
