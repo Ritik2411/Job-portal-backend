@@ -11,13 +11,13 @@ namespace EmployeeModule.Repository{
     //VacancyDetailRepository implements IVacancyDetail and defined all its  methods 
     public class VacancyDetailRepository : IVacancyDetail{
         private readonly VacancyDetailContext _vacancy;
-        
         public VacancyDetailRepository(VacancyDetailContext vacancyDetailContext){
             _vacancy = vacancyDetailContext;
         }
 
         // Provides list of all vacancies posted by employee.
-        public async Task<List<VacancyDetail>> getVacancyListAsync(){
+        public async Task<ResponeseModel> getVacancyListAsync(string sortOrder,  int page_size, int page = 1){
+            
             var vacancies = await _vacancy.vacancies.Select(x=>new VacancyDetail(){
                 id = x.id,
                 user_id = x.user_id,
@@ -32,12 +32,37 @@ namespace EmployeeModule.Repository{
                 Max_Salary = x.Max_Salary ,
                 no_of_applications = x.no_of_applications
             }).ToListAsync();
+            
+            switch(sortOrder){
+                case "ascending_publishDate":
+                    vacancies = vacancies.OrderBy(s => s.Published_Date).ToList();
+                    break;
 
-            return vacancies;
+                case "descending_lastDate":
+                    vacancies = vacancies.OrderByDescending(s => s.Last_Date).ToList();
+                    break;
+                
+                case "ascending_lastDate":
+                    vacancies = vacancies.OrderBy(s => s.Last_Date).ToList();
+                    break;
+
+                default:
+                    vacancies = vacancies.OrderByDescending(s => s.Published_Date).ToList();
+                    break;
+            }
+
+            var result = PaginationModel<VacancyDetail>.create(vacancies, page, page_size);
+          
+            return new ResponeseModel(){
+                vacancyDetail = result,
+                totalPage = result.totalPage,
+                pageIndex = result.PageIndex,
+                totalItems = vacancies.Count
+            };
         }
 
         //Provides the data of particular vacancy based on user_id.
-        public async Task<List<VacancyDetail>> getVacanyByUserIdAsync(string user_id){
+        public async Task<ResponeseModel> getVacanyByUserIdAsync(string user_id, string sortOrder,int pageSize, int page = 1){
             var vacancyData = await _vacancy.vacancies.Where(x => x.user_id == user_id).Select(x=>new VacancyDetail(){
                 id = x.id,
                 user_id = x.user_id,
@@ -53,7 +78,31 @@ namespace EmployeeModule.Repository{
                 no_of_applications = x.no_of_applications
             }).ToListAsync();
             
-            return vacancyData;
+            switch(sortOrder){
+                case "ascending_PD":
+                    vacancyData = vacancyData.OrderBy(x => x.Published_Date).ToList();
+                    break;
+
+                case "descending_LD":
+                    vacancyData = vacancyData.OrderByDescending(x => x.Last_Date).ToList();
+                    break;
+
+                case "ascending_LD":
+                    vacancyData = vacancyData.OrderBy(x => x.Last_Date).ToList();
+                    break;
+
+                default:
+                    vacancyData = vacancyData.OrderByDescending(x => x.Published_Date).ToList();
+                    break;
+            }
+
+            var result = PaginationModel<VacancyDetail>.create(vacancyData, page, pageSize);
+            return new ResponeseModel(){
+                vacancyDetail = result,
+                totalItems = vacancyData.Count,
+                pageIndex = result.PageIndex,
+                totalPage = result.totalPage
+            };
         }
 
         //Provides the data of particular vacancy based on ID(PK).

@@ -24,8 +24,8 @@ namespace EmployeeModule.Controller{
 
         [HttpGet]
         //Calls getVacancyListAsync from IVacancyDetail.
-        public async Task<IActionResult> getVacancy(){
-            var result = await _vacancy.getVacancyListAsync();
+        public async Task<IActionResult> getVacancy([FromQuery]string sortOrder, [FromQuery]int pageSize, [FromQuery]int page){
+            var result = await _vacancy.getVacancyListAsync(sortOrder, pageSize, page);
             return Ok(result);
         }
 
@@ -45,8 +45,8 @@ namespace EmployeeModule.Controller{
 
         [HttpGet("{user_id}")]
         //Calls updateVacancyAsync from IVacancyDetail.        
-        public async Task<IActionResult> getVacancyByUserId([FromRoute]string user_id){
-            var result = await _vacancy.getVacanyByUserIdAsync(user_id);
+        public async Task<IActionResult> getVacancyByUserId([FromRoute]string user_id, [FromQuery]string sortOrder,[FromQuery]int page_size,[FromQuery]int page){
+            var result = await _vacancy.getVacanyByUserIdAsync(user_id, sortOrder, page_size, page);
             return Ok(result);
         }
 

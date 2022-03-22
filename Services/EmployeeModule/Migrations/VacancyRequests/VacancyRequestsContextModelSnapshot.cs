@@ -26,6 +26,9 @@ namespace EmployeeModule.Migrations.VacancyRequests
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<string>("PublishedBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("applied_on")
                         .HasColumnType("datetime2");
 
@@ -34,6 +37,9 @@ namespace EmployeeModule.Migrations.VacancyRequests
 
                     b.Property<bool>("awaiting_approval")
                         .HasColumnType("bit");
+
+                    b.Property<string>("description")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("user_id")
                         .HasColumnType("nvarchar(max)");

@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EmployeeModule.Model{
     public class VacancyDetailModel{
+        public int id { get;set; }
+
+        public string user_id { get;set; } 
         public string PublishedBy { get;set; } 
         
         public DateTime Published_Date { get;set; }
@@ -28,5 +31,6 @@ namespace EmployeeModule.Model{
         public string Max_Salary { get;set; } 
 
         public int no_of_applications { get;set; } 
+        public int totalPage { get;set; }
     }
 }

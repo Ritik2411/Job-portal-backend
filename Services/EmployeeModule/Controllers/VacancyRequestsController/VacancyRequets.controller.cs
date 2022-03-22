@@ -29,8 +29,8 @@ namespace EmployeeModule.Controller{
 
          [HttpGet("{user_id}")] 
          //Calls GetVacancyRequestsByUserIdAsync from IVacancyRequests.   
-         public async Task<IActionResult> getVacancyRequestsByUserId(string user_id){
-             var result = await _requests.GetVacancyRequestsByUserIdAsync(user_id);
+         public async Task<IActionResult> getVacancyRequestsByUserId(string user_id,[FromQuery]string sort_by_date){
+             var result = await _requests.GetVacancyRequestsByUserIdAsync(user_id, sort_by_date);
              return Ok(result);
          }
 

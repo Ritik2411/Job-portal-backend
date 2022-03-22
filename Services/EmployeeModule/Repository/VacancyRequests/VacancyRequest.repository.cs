@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,7 +23,9 @@ namespace EmployeeModule.Repository{
                 applied_on = vacancyRequestsModel.applied_on,
                 awaiting_approval = vacancyRequestsModel.awaiting_approval,
                 approved = vacancyRequestsModel.approved,
-                user_name = vacancyRequestsModel.user_name
+                user_name = vacancyRequestsModel.user_name,
+                PublishedBy = vacancyRequestsModel.PublishedBy,
+                description = vacancyRequestsModel.description
             }; 
 
             _context.vacancyRequests.Add(data);
@@ -38,14 +41,16 @@ namespace EmployeeModule.Repository{
                applied_on = x.applied_on,
                awaiting_approval = x.awaiting_approval,
                approved = x.approved,
-               user_name = x.user_name
+               user_name = x.user_name,
+               PublishedBy = x.PublishedBy,
+               description = x.description
            }).ToListAsync();
 
            return result;
         }
 
         //Get vacancies requests by jobseeker user_id. 
-        public async Task<List<VacancyRequests>> GetVacancyRequestsByUserIdAsync(string user_id){
+        public async Task<List<VacancyRequests>> GetVacancyRequestsByUserIdAsync(string user_id, string sort_by_date){
             var result = await _context.vacancyRequests.Where(x => x.user_id == user_id).Select(x => new VacancyRequests(){
                 id = x.id,
                 user_id = x.user_id,
@@ -53,10 +58,25 @@ namespace EmployeeModule.Repository{
                 applied_on = x.applied_on,
                 awaiting_approval = x.awaiting_approval,
                 approved = x.approved,
-                user_name = x.user_name
+                user_name = x.user_name,
+                PublishedBy = x.PublishedBy,
+                description = x.description,
             }).ToListAsync();
 
-            return result;
+            var vacany_req = new List<VacancyRequests>();
+
+            //Sort by applied date    
+            switch(sort_by_date){
+                case "ascending":
+                vacany_req = result.OrderBy(x => x.applied_on).ToList();
+                break;
+
+                default:
+                vacany_req = result.OrderByDescending(x => x.applied_on).ToList();
+                break;   
+            }   
+  
+            return vacany_req;
         }
 
         //Get vacancies requests by ID(PK).

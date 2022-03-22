@@ -14,11 +14,13 @@ namespace EmployeeModule.Migrations.VacancyRequests
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     vacancy_id = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PublishedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     user_id = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     applied_on = table.Column<DateTime>(type: "datetime2", nullable: false),
                     awaiting_approval = table.Column<bool>(type: "bit", nullable: false),
                     approved = table.Column<bool>(type: "bit", nullable: false),
-                    user_name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    user_name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
