@@ -13,7 +13,7 @@ namespace JobseekerModule.repository{
 
         public async Task AddQualificationAsync(QualificationModel qualificationModel){
             var qualification = new Qualification(){
-                userId = qualificationModel.userId,
+                user_id = qualificationModel.userId,
                 qualification = qualificationModel.qualification,
                 name = qualificationModel.name,
                 university = qualificationModel.university,
@@ -21,14 +21,14 @@ namespace JobseekerModule.repository{
                 grade = qualificationModel.grade
             };
 
-            _context.qualifications.Add(qualification);            
+            _context.qualification.Add(qualification);            
             await _context.SaveChangesAsync();
         }
 
         public async Task<List<Qualification>> GetQualicationByUserId(string user_id){
-            var qualification_data = await _context.qualifications.Where(x => x.userId == user_id).Select(x => new Qualification(){
+            var qualification_data = await _context.qualification.Where(x => x.user_id == user_id).Select(x => new Qualification(){
                 id = x.id,
-                userId = x.userId,
+                user_id = x.user_id,
                 qualification = x.qualification,
                 name = x.name,
                 university = x.university,
@@ -40,7 +40,7 @@ namespace JobseekerModule.repository{
         } 
 
         public async Task UpdateQualificaitonAsync(int id,QualificationModel qualificationModel){
-            var qualification = await _context.qualifications.FindAsync(id);
+            var qualification = await _context.qualification.FindAsync(id);
 
             if(qualification != null){
                 qualification.qualification = qualificationModel.qualification;
@@ -57,7 +57,7 @@ namespace JobseekerModule.repository{
                 id = id
             };
 
-            _context.qualifications.Remove(qualification);
+            _context.qualification.Remove(qualification);
             await _context.SaveChangesAsync();
         }
     }

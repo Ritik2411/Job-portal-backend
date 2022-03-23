@@ -7,15 +7,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace JobseekerModule.repository{
     public class JobseekerRepository : IJobSeeker{
-        private readonly JobseekerContext _context;
+        private readonly JobseekerDetailContext _context;
         
-        public JobseekerRepository(JobseekerContext context){
+        public JobseekerRepository(JobseekerDetailContext context){
             _context = context;
         }
 
-        public async Task AddJobSeekerAsync(JobSeeker jobseekerdata){
-            var jobseeker = new JobSeeker(){
-                id = jobseekerdata.id,
+        public async Task AddJobSeekerAsync(JobSeekerModel jobseekerdata){
+            var data = new JobSeekerDetail(){
+                user_id = jobseekerdata.user_id,
                 first_name = jobseekerdata.first_name,
                 last_name = jobseekerdata.last_name,
                 email = jobseekerdata.email,
@@ -26,14 +26,14 @@ namespace JobseekerModule.repository{
                 dob = jobseekerdata.dob
             };
 
-            _context.jobSeeker.Add(jobseeker); 
+            _context.jobSeeker.Add(data); 
 
             await _context.SaveChangesAsync();
         }
 
         public async Task<List<JobSeekerModel>> GetJobSeekerByUserIdAsync(string id){
-            var data = await _context.jobSeeker.Where(x => x.id == id).Select((x) => new JobSeekerModel(){
-                id = x.id,
+            var data = await _context.jobSeeker.Where(x => x.user_id == id).Select((x) => new JobSeekerModel(){
+                user_id = x.user_id,
                 first_name = x.first_name,
                 last_name = x.last_name,
                 email = x.email,
@@ -65,8 +65,8 @@ namespace JobseekerModule.repository{
         }
 
         public async Task DeleteJobSeekerByUserIdAsync(string id){
-            var jobseeker = new JobSeeker(){
-                id = id
+            var jobseeker = new JobSeekerDetail(){
+                user_id = id
             };
 
             _context.jobSeeker.Remove(jobseeker);

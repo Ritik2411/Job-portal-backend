@@ -49,8 +49,7 @@ namespace EmployeeModule.Repository{
            return result;
         }
 
-        //Get vacancies requests by jobseeker user_id. 
-        public async Task<List<VacancyRequests>> GetVacancyRequestsByUserIdAsync(string user_id, string sort_by_date){
+        public async Task<List<VacancyRequests>> getallVacancyRequestsByUserIdAsync(string user_id){
             var result = await _context.vacancyRequests.Where(x => x.user_id == user_id).Select(x => new VacancyRequests(){
                 id = x.id,
                 user_id = x.user_id,
@@ -63,21 +62,80 @@ namespace EmployeeModule.Repository{
                 description = x.description,
             }).ToListAsync();
 
-            var vacany_req = new List<VacancyRequests>();
+            return result;
+        }
+
+        //Get vacancies requests by jobseeker user_id. 
+        public async Task<ResponeseModel> GetVacancyRequestsByUserIdAsync(string user_id, string sort_by_date, int page_size, int page){
+            var result = await _context.vacancyRequests.Where(x => x.user_id == user_id).Select(x => new VacancyRequests(){
+                id = x.id,
+                user_id = x.user_id,
+                vacancy_id = x.vacancy_id,
+                applied_on = x.applied_on,
+                awaiting_approval = x.awaiting_approval,
+                approved = x.approved,
+                user_name = x.user_name,
+                PublishedBy = x.PublishedBy,
+                description = x.description,
+            }).ToListAsync();
+
+            
 
             //Sort by applied date    
             switch(sort_by_date){
                 case "ascending":
-                vacany_req = result.OrderBy(x => x.applied_on).ToList();
+                result = result.OrderBy(x => x.applied_on).ToList();
                 break;
 
                 default:
-                vacany_req = result.OrderByDescending(x => x.applied_on).ToList();
+                result = result.OrderByDescending(x => x.applied_on).ToList();
                 break;   
             }   
-  
-            return vacany_req;
+
+            //Pagination
+            var data = PaginationModel<VacancyRequests>.create(result, page, page_size);
+
+            return new ResponeseModel(){
+                VacancyRequest= data,
+                totalItems = result.Count,
+                totalPage = data.totalPage,
+                pageIndex = data.PageIndex
+            };
         }
+
+        public async Task<ResponeseModel> GetVacancyRequestsByPublisherNameAsync(string publisher_name, string sort_order, int page_size, int page){
+            var result = await _context.vacancyRequests.Where(x => x.PublishedBy == publisher_name).Select(x => new VacancyRequests(){
+                id = x.id,
+                user_id = x.user_id,
+                vacancy_id = x.vacancy_id,
+                applied_on = x.applied_on,
+                awaiting_approval = x.awaiting_approval,
+                approved = x.approved,
+                user_name = x.user_name,
+                PublishedBy = x.PublishedBy,
+                description = x.description,
+            }).ToListAsync();
+
+            //Sorting
+            switch(sort_order){
+                case "ascending":
+                    result = result.OrderBy(x => x.applied_on).ToList();
+                    break;
+                
+                default:
+                    result = result.OrderByDescending(x => x.applied_on).ToList();
+                    break;
+            }
+
+            //Pagiantion
+            var vacancyRequest = PaginationModel<VacancyRequests>.create(result, page, page_size);
+            return new ResponeseModel(){
+                VacancyRequest = vacancyRequest,
+                pageIndex = vacancyRequest.PageIndex,
+                totalPage = vacancyRequest.totalPage,
+                totalItems = result.Count
+            };  
+        }   
 
         //Get vacancies requests by ID(PK).
         public async Task<VacancyRequests> GetVacancyRequestsByIdAsync(int id){

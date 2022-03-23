@@ -29,7 +29,7 @@ namespace JobseekerModule
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<JobseekerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));    
+            services.AddDbContext<JobseekerDetailContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));    
             services.AddDbContext<QualificationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));
             services.AddDbContext<ExperienceContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));
             services.AddDbContext<CvContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));

@@ -14,7 +14,7 @@ namespace JobseekerModule.controller{
         }
 
         [HttpPost]
-        public async Task<IActionResult> addJobseeker(JobSeeker jobseekerdata){
+        public async Task<IActionResult> addJobseeker(JobSeekerModel jobseekerdata){
             await _jobseeker.AddJobSeekerAsync(jobseekerdata);
             return Ok(true);
         }

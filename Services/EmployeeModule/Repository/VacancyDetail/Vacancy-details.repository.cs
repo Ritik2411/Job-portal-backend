@@ -62,7 +62,7 @@ namespace EmployeeModule.Repository{
         }
 
         //Provides the data of particular vacancy based on user_id.
-        public async Task<ResponeseModel> getVacanyByUserIdAsync(string user_id, string sortOrder,int pageSize, int page = 1){
+        public async Task<ResponeseModel> getVacanyByUserIdAsync(string user_id, string sortOrder,int pageSize, int page){
             var vacancyData = await _vacancy.vacancies.Where(x => x.user_id == user_id).Select(x=>new VacancyDetail(){
                 id = x.id,
                 user_id = x.user_id,

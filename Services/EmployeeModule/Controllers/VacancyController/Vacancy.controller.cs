@@ -45,7 +45,7 @@ namespace EmployeeModule.Controller{
 
         [HttpGet("{user_id}")]
         //Calls updateVacancyAsync from IVacancyDetail.        
-        public async Task<IActionResult> getVacancyByUserId([FromRoute]string user_id, [FromQuery]string sortOrder,[FromQuery]int page_size,[FromQuery]int page){
+        public async Task<IActionResult> getVacancyByUserId([FromRoute]string user_id, [FromQuery]string sortOrder = "default",[FromQuery]int page_size = 5,[FromQuery]int page = 1){
             var result = await _vacancy.getVacanyByUserIdAsync(user_id, sortOrder, page_size, page);
             return Ok(result);
         }

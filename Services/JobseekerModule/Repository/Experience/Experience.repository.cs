@@ -15,7 +15,7 @@ namespace JobseekerModule.repository{
 
         public async Task AddUserExperienceAsync(ExperienceModel experienceModel){
             var experience = new Experience(){
-                User_ID = experienceModel.user_id,
+                user_id = experienceModel.user_id,
                 company_name = experienceModel.company_name,
                 start_year = experienceModel.start_year,
                 end_year = experienceModel.end_year,
@@ -29,9 +29,9 @@ namespace JobseekerModule.repository{
         }
 
         public async Task<List<Experience>> GetUserExperienceByIdAsync(string id){
-            var result = await _context.experience.Where(x=> x.User_ID == id).Select(x => new Experience(){
+            var result = await _context.experience.Where(x=> x.user_id == id).Select(x => new Experience(){
                  Id = x.Id,
-                 User_ID = x.User_ID,
+                 user_id = x.user_id,
                  company_name = x.company_name,
                  start_year = x.start_year,
                  end_year = x.end_year,

@@ -6,6 +6,6 @@ namespace JobseekerModule.context{
 
         }
 
-        public DbSet<Qualification> qualifications { get;set; }
+        public DbSet<Qualification> qualification { get;set; }
     }
 }

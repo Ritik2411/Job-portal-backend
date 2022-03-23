@@ -29,8 +29,8 @@ namespace EmployeeModule.Controller{
 
          [HttpGet("{user_id}")] 
          //Calls GetVacancyRequestsByUserIdAsync from IVacancyRequests.   
-         public async Task<IActionResult> getVacancyRequestsByUserId(string user_id,[FromQuery]string sort_by_date){
-             var result = await _requests.GetVacancyRequestsByUserIdAsync(user_id, sort_by_date);
+         public async Task<IActionResult> getVacancyRequestsByUserId(string user_id, [FromQuery]string sort_by_date = "default", [FromQuery]int page_size = 5, [FromQuery]int page = 1){
+             var result = await _requests.GetVacancyRequestsByUserIdAsync(user_id, sort_by_date, page_size, page);
              return Ok(result);
          }
 
@@ -53,6 +53,18 @@ namespace EmployeeModule.Controller{
          public async Task<IActionResult> updateVacancyPatchById(int id, JsonPatchDocument vacancyRequest){
              await _requests.VacancyPatchUpdateByIdAsync(id, vacancyRequest);
              return Ok(true);
+         }
+
+         [HttpGet("alluservacancy/{userId}")]
+         public async Task<IActionResult> getallVacancyPatchById(string userId){
+             var result = await _requests.getallVacancyRequestsByUserIdAsync(userId);
+             return Ok(result);
+         }
+
+         [HttpGet("publisher_name/{name}")]
+         public async Task<IActionResult> getVacancyRequestsByPublisherName(string name, string sort_order = "default", int page_size = 5, int page = 1){
+             var result = await _requests.GetVacancyRequestsByPublisherNameAsync(name, sort_order, page_size, page);
+             return Ok(result);
          }
     }
 }

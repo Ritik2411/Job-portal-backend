@@ -175,6 +175,44 @@
         },
 
         {
+            "DownstreamPathTemplate": "/api/VacancyRequests/alluservacancy/{userId}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5000
+                }
+            ],
+
+            "UpstreamPathTemplate": "/VacancyRequests/alluservacancy/{userId}",
+            "UpstreamHttpMethod": [ "Get" ],
+
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/VacancyRequests/publisher_name/{name}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5000
+                }
+            ],
+
+            "UpstreamPathTemplate": "/VacancyRequests/publisher_name/{name}",
+            "UpstreamHttpMethod": [ "Get" ],
+
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer",
+                "AllowedScopes": []
+            }
+        },
+
+        {
             "DownstreamPathTemplate": "/api/Experience",
             "DownstreamScheme": "http",
             "DownstreamHostAndPorts": [
