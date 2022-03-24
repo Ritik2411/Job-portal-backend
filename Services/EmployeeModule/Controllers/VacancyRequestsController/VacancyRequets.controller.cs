@@ -62,8 +62,8 @@ namespace EmployeeModule.Controller{
          }
 
          [HttpGet("publisher_name/{name}")]
-         public async Task<IActionResult> getVacancyRequestsByPublisherName(string name, string sort_order = "default", int page_size = 5, int page = 1){
-             var result = await _requests.GetVacancyRequestsByPublisherNameAsync(name, sort_order, page_size, page);
+         public async Task<IActionResult> getVacancyRequestsByPublisherName(string name, string search="All",string sort_order = "default", int page_size = 5, int page = 1){
+             var result = await _requests.GetVacancyRequestsByPublisherNameAsync(name, search,sort_order, page_size, page);
              return Ok(result);
          }
     }

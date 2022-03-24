@@ -28,9 +28,9 @@ namespace JobseekerModule.repository{
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Experience>> GetUserExperienceByIdAsync(string id){
-            var result = await _context.experience.Where(x=> x.user_id == id).Select(x => new Experience(){
-                 Id = x.Id,
+        public async Task<List<ExperienceModel>> GetUserExperienceByIdAsync(string id){
+            var result = await _context.experience.Where(x=> x.user_id == id).Select(x => new ExperienceModel(){
+                 id = x.Id,
                  user_id = x.user_id,
                  company_name = x.company_name,
                  start_year = x.start_year,

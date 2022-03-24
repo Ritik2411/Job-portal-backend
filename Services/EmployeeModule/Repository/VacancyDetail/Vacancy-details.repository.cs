@@ -62,7 +62,7 @@ namespace EmployeeModule.Repository{
         }
 
         //Provides the data of particular vacancy based on user_id.
-        public async Task<ResponeseModel> getVacanyByUserIdAsync(string user_id, string sortOrder,int pageSize, int page){
+        public async Task<ResponeseModel> getVacanyByUserIdAsync(string user_id, string experience,string pub_date,string sortOrder,int pageSize, int page){
             var vacancyData = await _vacancy.vacancies.Where(x => x.user_id == user_id).Select(x=>new VacancyDetail(){
                 id = x.id,
                 user_id = x.user_id,
@@ -78,6 +78,16 @@ namespace EmployeeModule.Repository{
                 no_of_applications = x.no_of_applications
             }).ToListAsync();
             
+            //Filtering
+            if(!string.IsNullOrEmpty(experience)){
+                vacancyData = vacancyData.Where(x => x.Experience.Contains(experience)).ToList();
+            }
+
+            if(!string.IsNullOrEmpty(pub_date)){
+                vacancyData = vacancyData.Where(x => x.Published_Date.ToString().Contains(pub_date)).ToList();
+            }
+
+            //Sorting
             switch(sortOrder){
                 case "ascending_PD":
                     vacancyData = vacancyData.OrderBy(x => x.Published_Date).ToList();
@@ -96,6 +106,7 @@ namespace EmployeeModule.Repository{
                     break;
             }
 
+            //Pagination
             var result = PaginationModel<VacancyDetail>.create(vacancyData, page, pageSize);
             return new ResponeseModel(){
                 vacancyDetail = result,

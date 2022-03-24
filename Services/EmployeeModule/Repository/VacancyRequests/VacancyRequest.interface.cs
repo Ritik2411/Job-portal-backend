@@ -13,6 +13,6 @@ namespace EmployeeModule.Repository{
         Task DeleteVacancyRequestsAsync(int id);
         Task<VacancyRequests> GetVacancyRequestsByIdAsync(int id);
         Task VacancyPatchUpdateByIdAsync(int id, JsonPatchDocument vacancyRequest);
-        Task<ResponeseModel> GetVacancyRequestsByPublisherNameAsync(string user_name, string sort_order, int page_size, int page);
+        Task<ResponeseModel> GetVacancyRequestsByPublisherNameAsync(string user_name, string search, string sort_order, int page_size, int page);
     }
 }

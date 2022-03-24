@@ -103,7 +103,7 @@ namespace EmployeeModule.Repository{
             };
         }
 
-        public async Task<ResponeseModel> GetVacancyRequestsByPublisherNameAsync(string publisher_name, string sort_order, int page_size, int page){
+        public async Task<ResponeseModel> GetVacancyRequestsByPublisherNameAsync(string publisher_name, string search,string sort_order, int page_size, int page){
             var result = await _context.vacancyRequests.Where(x => x.PublishedBy == publisher_name).Select(x => new VacancyRequests(){
                 id = x.id,
                 user_id = x.user_id,
@@ -115,6 +115,31 @@ namespace EmployeeModule.Repository{
                 PublishedBy = x.PublishedBy,
                 description = x.description,
             }).ToListAsync();
+
+            //Filtering
+            if(!string.IsNullOrEmpty(search)){
+                switch(search){
+                    case "All":
+                        result = result.ToList();
+                        break;
+
+                    case "Approved":
+                        result = result.Where(x => x.approved == true && x.awaiting_approval == false).ToList();
+                        break;
+
+                    case "Rejected":
+                        result = result.Where(x => x.approved == false && x.awaiting_approval == false).ToList();
+                        break;
+
+                    case "awaiting_approval":
+                        result = result.Where(x => x.awaiting_approval == true).ToList();
+                        break;
+
+                    default:
+                        result = result.Where(x => x.applied_on.ToString().Contains(search.ToString())).ToList();
+                        break;
+                }
+            }
 
             //Sorting
             switch(sort_order){
@@ -129,6 +154,7 @@ namespace EmployeeModule.Repository{
 
             //Pagiantion
             var vacancyRequest = PaginationModel<VacancyRequests>.create(result, page, page_size);
+            
             return new ResponeseModel(){
                 VacancyRequest = vacancyRequest,
                 pageIndex = vacancyRequest.PageIndex,

@@ -10,7 +10,7 @@ namespace EmployeeModule.Repository{
         Task<ResponeseModel> getVacancyListAsync(string sortOrder, int page, int page_size);
         Task deleteVacancyAsync(int id);
         Task updateVacancyAsync(int id, VacancyDetailModel vacancyDetailModel);
-        Task<ResponeseModel> getVacanyByUserIdAsync(string user_id, string sortOrder,int pageSize, int page = 1);
+        Task<ResponeseModel> getVacanyByUserIdAsync(string user_id, string experience, string pub_date,string sortOrder,int pageSize, int page = 1);
         Task<List<VacancyDetail>> getVacanyByIdAsync(int id);
         Task UpdateVacancyPatchAsync(int id, JsonPatchDocument vacancyModel);
     }

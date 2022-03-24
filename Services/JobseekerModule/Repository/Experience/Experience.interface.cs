@@ -6,7 +6,7 @@ using JobseekerModule.models;
 namespace JobseekerModule.repository{
     public interface IExperience{
         Task AddUserExperienceAsync(ExperienceModel experienceModel);
-        Task<List<Experience>> GetUserExperienceByIdAsync(string id);
+        Task<List<ExperienceModel>> GetUserExperienceByIdAsync(string id);
         Task UpdateExperienceById(int id, ExperienceModel experienceModel);
         Task DeleteExperienceByIdAsync(int id);
     }

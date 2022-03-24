@@ -25,10 +25,10 @@ namespace JobseekerModule.repository{
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Qualification>> GetQualicationByUserId(string user_id){
-            var qualification_data = await _context.qualification.Where(x => x.user_id == user_id).Select(x => new Qualification(){
+        public async Task<List<QualificationModel>> GetQualicationByUserId(string user_id){
+            var qualification_data = await _context.qualification.Where(x => x.user_id == user_id).Select(x => new QualificationModel(){
                 id = x.id,
-                user_id = x.user_id,
+                userId = x.user_id,
                 qualification = x.qualification,
                 name = x.name,
                 university = x.university,

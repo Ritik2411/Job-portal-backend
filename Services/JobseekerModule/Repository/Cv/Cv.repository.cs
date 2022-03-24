@@ -65,7 +65,7 @@ namespace JobseekerModule.repository{
                 name = x.name,
                 file_size = x.file_size
             }).ToListAsync();
-
+            
             return result;
         }
 
