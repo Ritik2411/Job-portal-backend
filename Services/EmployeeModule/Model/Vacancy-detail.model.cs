@@ -7,7 +7,7 @@ namespace EmployeeModule.Model{
 
         public string user_id { get;set; } 
         public string PublishedBy { get;set; } 
-        
+            
         public DateTime Published_Date { get;set; }
         
         [Required]
@@ -21,7 +21,7 @@ namespace EmployeeModule.Model{
         
         [Required]
         public string Experience { get;set; } 
-        
+        [Required]    
         public DateTime Last_Date { get;set; }
 
         [Required]

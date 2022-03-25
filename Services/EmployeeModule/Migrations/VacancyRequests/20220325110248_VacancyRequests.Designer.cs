@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeModule.Migrations.VacancyRequests
 {
     [DbContext(typeof(VacancyRequestsContext))]
-    [Migration("20220322095047_VacancyRequests")]
+    [Migration("20220325110248_VacancyRequests")]
     partial class VacancyRequests
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,6 +27,9 @@ namespace EmployeeModule.Migrations.VacancyRequests
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
+
+                    b.Property<int>("No_of_Vacancies")
+                        .HasColumnType("int");
 
                     b.Property<string>("PublishedBy")
                         .HasColumnType("nvarchar(max)");
@@ -49,8 +52,8 @@ namespace EmployeeModule.Migrations.VacancyRequests
                     b.Property<string>("user_name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("vacancy_id")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("vacancy_id")
+                        .HasColumnType("int");
 
                     b.HasKey("id");
 

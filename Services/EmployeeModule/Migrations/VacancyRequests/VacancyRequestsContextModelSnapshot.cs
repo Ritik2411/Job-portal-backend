@@ -26,6 +26,9 @@ namespace EmployeeModule.Migrations.VacancyRequests
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<int>("No_of_Vacancies")
+                        .HasColumnType("int");
+
                     b.Property<string>("PublishedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -47,8 +50,8 @@ namespace EmployeeModule.Migrations.VacancyRequests
                     b.Property<string>("user_name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("vacancy_id")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("vacancy_id")
+                        .HasColumnType("int");
 
                     b.HasKey("id");
 

@@ -14,5 +14,6 @@ namespace IdentityModule.repository{
         Task SignOutAsync();
         Task<IdentityModel> GetUserByUsernameAsync(string Username);
         Task deleteUserAsync(string userName);
+        Task updateUserAsync(string username, UpdateProfileModel updateProfileModel);
     }
 }

@@ -16,7 +16,7 @@ namespace EmployeeModule.Repository{
         }
 
         // Provides list of all vacancies posted by employee.
-        public async Task<ResponeseModel> getVacancyListAsync(string sortOrder,  int page_size, int page = 1){
+        public async Task<ResponeseModel> getVacancyListAsync(string pub_name,string min_salary, string max_salary,string sortOrder,  int page_size, int page = 1){
             
             var vacancies = await _vacancy.vacancies.Select(x=>new VacancyDetail(){
                 id = x.id,
@@ -32,7 +32,21 @@ namespace EmployeeModule.Repository{
                 Max_Salary = x.Max_Salary ,
                 no_of_applications = x.no_of_applications
             }).ToListAsync();
-            
+
+            //Filtering
+            if(!string.IsNullOrEmpty(min_salary)){
+                vacancies = vacancies.Where(x => x.Min_Salary.Contains(min_salary)).ToList();
+            }
+
+            if(!string.IsNullOrEmpty(max_salary)){
+                vacancies = vacancies.Where(x => x.Max_Salary.Contains(max_salary)).ToList();
+            }
+
+            if(!string.IsNullOrEmpty(pub_name)){
+                vacancies = vacancies.Where(x => x.PublishedBy.Contains(pub_name)).ToList();
+            }
+
+            //Sorting
             switch(sortOrder){
                 case "ascending_publishDate":
                     vacancies = vacancies.OrderBy(s => s.Published_Date).ToList();
@@ -51,6 +65,7 @@ namespace EmployeeModule.Repository{
                     break;
             }
 
+            //Pagination
             var result = PaginationModel<VacancyDetail>.create(vacancies, page, page_size);
           
             return new ResponeseModel(){
@@ -175,7 +190,8 @@ namespace EmployeeModule.Repository{
                 vacancies.Job_Description = vacancyDetailModel.Job_Description;
                 vacancies.Experience = vacancyDetailModel.Experience;
                 vacancies.Min_Salary = vacancyDetailModel.Min_Salary;
-                vacancies.Max_Salary = vacancyDetailModel.Max_Salary;        
+                vacancies.Max_Salary = vacancyDetailModel.Max_Salary; 
+                vacancies.Last_Date = vacancyDetailModel.Last_Date;       
             }
 
             await _vacancy.SaveChangesAsync();

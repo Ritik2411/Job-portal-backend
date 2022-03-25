@@ -534,11 +534,7 @@
             ],
 
             "UpstreamPathTemplate": "/getUsersById/{id}",
-            "UpstreamHttpMethod": [ "Get" ],
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
-            }
+            "UpstreamHttpMethod": [ "Get" ]
         },
 
         {
@@ -553,6 +549,32 @@
 
             "UpstreamPathTemplate": "/getUserByUsername/{user}",
             "UpstreamHttpMethod": [ "Get" ],
+
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "1s",
+                "PeriodTimespan": 1,
+                "Limit": 1
+            },
+
+            "FileCacheOptions": {
+                "TtlSeconds": 30
+            }
+        },
+
+        {
+            "DownstreamPathTemplate": "/api/updateUser/{user_name}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5002
+                }
+            ],
+
+            "UpstreamPathTemplate": "/updateUser/{user_name}",
+            "UpstreamHttpMethod": [ "Put" ],
 
             "RateLimitOptions": {
                 "ClientWhitelist": [],

@@ -25,7 +25,8 @@ namespace EmployeeModule.Repository{
                 approved = vacancyRequestsModel.approved,
                 user_name = vacancyRequestsModel.user_name,
                 PublishedBy = vacancyRequestsModel.PublishedBy,
-                description = vacancyRequestsModel.description
+                description = vacancyRequestsModel.description,
+                No_of_Vacancies = vacancyRequestsModel.No_of_Vacancies
             }; 
 
             _context.vacancyRequests.Add(data);
@@ -43,7 +44,8 @@ namespace EmployeeModule.Repository{
                approved = x.approved,
                user_name = x.user_name,
                PublishedBy = x.PublishedBy,
-               description = x.description
+               description = x.description,
+               No_of_Vacancies = x.No_of_Vacancies
            }).ToListAsync();
 
            return result;
@@ -60,13 +62,14 @@ namespace EmployeeModule.Repository{
                 user_name = x.user_name,
                 PublishedBy = x.PublishedBy,
                 description = x.description,
+                No_of_Vacancies = x.No_of_Vacancies
             }).ToListAsync();
 
             return result;
         }
 
         //Get vacancies requests by jobseeker user_id. 
-        public async Task<ResponeseModel> GetVacancyRequestsByUserIdAsync(string user_id, string sort_by_date, int page_size, int page){
+        public async Task<ResponeseModel> GetVacancyRequestsByUserIdAsync(string user_id, string status,string sort_by_date, int page_size, int page){
             var result = await _context.vacancyRequests.Where(x => x.user_id == user_id).Select(x => new VacancyRequests(){
                 id = x.id,
                 user_id = x.user_id,
@@ -77,9 +80,27 @@ namespace EmployeeModule.Repository{
                 user_name = x.user_name,
                 PublishedBy = x.PublishedBy,
                 description = x.description,
+                No_of_Vacancies = x.No_of_Vacancies
             }).ToListAsync();
 
-            
+            //Filtering
+            switch(status){
+                    case "Approved":
+                        result = result.Where(x => x.approved == true && x.awaiting_approval == false).ToList();
+                        break;
+
+                    case "Rejected":
+                        result = result.Where(x => x.approved == false && x.awaiting_approval == false).ToList();
+                        break;
+
+                    case "awaiting_approval":
+                        result = result.Where(x => x.awaiting_approval == true).ToList();
+                        break;
+
+                    default:
+                        result = result.ToList();
+                        break;
+                }
 
             //Sort by applied date    
             switch(sort_by_date){
@@ -114,6 +135,7 @@ namespace EmployeeModule.Repository{
                 user_name = x.user_name,
                 PublishedBy = x.PublishedBy,
                 description = x.description,
+                No_of_Vacancies = x.No_of_Vacancies
             }).ToListAsync();
 
             //Filtering

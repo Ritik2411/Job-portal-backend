@@ -75,5 +75,11 @@ namespace IdentityModule.controller{
             await _identity.deleteUserAsync(user);
             return Ok(true);
         }
+
+        [HttpPut("{user_name}")]
+        public async Task<IActionResult> updateUser([FromRoute]string user_name, [FromBody]UpdateProfileModel updateProfileModel){
+            await _identity.updateUserAsync(user_name, updateProfileModel);    
+            return Ok(true);
+        }
     }
 }

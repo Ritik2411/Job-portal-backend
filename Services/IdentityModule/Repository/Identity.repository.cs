@@ -88,6 +88,17 @@ namespace IdentityModule.repository{
                 await _user.DeleteAsync(data);
             }
         }
+
+        public async Task updateUserAsync(string username, UpdateProfileModel updateProfileModel){
+            var data = await _user.FindByNameAsync(username);
+
+            if(data != null){
+                data.firstName = updateProfileModel.first_name;
+                data.lastName = updateProfileModel.last_name;
+            }
+
+            await _user.UpdateAsync(data);
+        }
         
         public async Task SignOutAsync(){
             await _signmanager.SignOutAsync();

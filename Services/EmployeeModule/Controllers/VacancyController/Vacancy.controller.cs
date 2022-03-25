@@ -24,8 +24,8 @@ namespace EmployeeModule.Controller{
 
         [HttpGet]
         //Calls getVacancyListAsync from IVacancyDetail.
-        public async Task<IActionResult> getVacancy([FromQuery]string sortOrder, [FromQuery]int pageSize, [FromQuery]int page){
-            var result = await _vacancy.getVacancyListAsync(sortOrder, pageSize, page);
+        public async Task<IActionResult> getVacancy([FromQuery]string pub_name,[FromQuery]string min_salary, [FromQuery]string max_salary,[FromQuery]string sortOrder="default", [FromQuery]int pageSize=5, [FromQuery]int page=1){
+            var result = await _vacancy.getVacancyListAsync(pub_name,min_salary,max_salary,sortOrder, pageSize, page);
             return Ok(result);
         }
 
