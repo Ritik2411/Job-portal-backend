@@ -15,18 +15,6 @@
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "Bearer",
                 "AllowedScopes": []
-            },
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
             }
         },
 
@@ -46,19 +34,7 @@
             },
 
             "UpstreamPathTemplate": "/EmployeeDetail/{id}",
-            "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
-            }
+            "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
         },
 
         {
@@ -228,18 +204,6 @@
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "Bearer",
                 "AllowedScopes": []
-            },
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
             }
         },
 
@@ -316,18 +280,6 @@
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "Bearer",
                 "AllowedScopes": []
-            },
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
             }
         },
 
@@ -366,18 +318,6 @@
             "AuthenticationOptions": {
                 "AuthenticationProviderKey": "Bearer",
                 "AllowedScopes": []
-            },
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
             }
         },
 
@@ -430,19 +370,7 @@
             ],
 
             "UpstreamPathTemplate": "/register",
-            "UpstreamHttpMethod": [ "Post" ],
-            
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
-            }
+            "UpstreamHttpMethod": [ "Post" ]
         },
 
         {
@@ -456,19 +384,7 @@
             ],
 
             "UpstreamPathTemplate": "/login",
-            "UpstreamHttpMethod": [ "Post" ],
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
-            }
+            "UpstreamHttpMethod": [ "Post" ]
         },
 
         {
@@ -508,19 +424,7 @@
             ],
 
             "UpstreamPathTemplate": "/getAllUsers",
-            "UpstreamHttpMethod": [ "Get" ],
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
-            }
+            "UpstreamHttpMethod": [ "Get" ]
         },
 
         {
@@ -548,19 +452,7 @@
             ],
 
             "UpstreamPathTemplate": "/getUserByUsername/{user}",
-            "UpstreamHttpMethod": [ "Get" ],
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
-            }
+            "UpstreamHttpMethod": [ "Get" ]
         },
 
         {
@@ -574,19 +466,7 @@
             ],
 
             "UpstreamPathTemplate": "/updateUser/{user_name}",
-            "UpstreamHttpMethod": [ "Put" ],
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
-            }
+            "UpstreamHttpMethod": [ "Put" ]
         },
 
         {
@@ -600,19 +480,7 @@
             ],
 
             "UpstreamPathTemplate": "/signOut",
-            "UpstreamHttpMethod": [ "Get" ],
-
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
-            },
-
-            "FileCacheOptions": {
-                "TtlSeconds": 30
-            }
+            "UpstreamHttpMethod": [ "Get" ]
         }
     ],
 
