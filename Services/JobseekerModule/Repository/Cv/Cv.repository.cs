@@ -18,6 +18,7 @@ namespace JobseekerModule.repository{
             _cv = cv;
         }
 
+        //Takes userId and file meta data adds it to system and adds metadata to CV table
         public async Task<bool> AddFileAsync(string user_id,IFormFile file){
             string fileName = "";
 
@@ -57,6 +58,7 @@ namespace JobseekerModule.repository{
             return false;
         }
 
+        //Gives the metadata about CV for particular user
         public async Task<List<CV>> getCVByUserIdAsync(string userid){
             var result = await _cv.cv.Where(x => x.user_id == userid).Select(x => new CV(){
                 id = x.id,
@@ -69,6 +71,7 @@ namespace JobseekerModule.repository{
             return result;
         }
 
+        //Deletes the CV metadata from CV table and also deletes the uploaded cv from system.
         public async Task<bool> deleteCVByIdAsync(DeleteCvModel deleteCvModel, int id){
             var data = new CV(){
                 id = id

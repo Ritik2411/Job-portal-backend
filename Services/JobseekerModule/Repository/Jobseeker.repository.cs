@@ -13,6 +13,7 @@ namespace JobseekerModule.repository{
             _context = context;
         }
 
+        //Adds jobseeker data
         public async Task AddJobSeekerAsync(JobSeekerModel jobseekerdata){
             var data = new JobSeekerDetail(){
                 user_id = jobseekerdata.user_id,
@@ -31,6 +32,7 @@ namespace JobseekerModule.repository{
             await _context.SaveChangesAsync();
         }
 
+        //Gives list of jobseeker data by UserId(PK)
         public async Task<List<JobSeekerModel>> GetJobSeekerByUserIdAsync(string id){
             var data = await _context.jobSeeker.Where(x => x.user_id == id).Select((x) => new JobSeekerModel(){
                 user_id = x.user_id,
@@ -47,6 +49,7 @@ namespace JobseekerModule.repository{
            return data;            
         }
 
+        //Updates jobseeker data by UserId(PK)
         public async Task UpdateJobSeekerById(string id, JobSeekerModel jobSeekerModel){
             var result = await _context.jobSeeker.FindAsync(id);
             
@@ -62,8 +65,9 @@ namespace JobseekerModule.repository{
 
                 await _context.SaveChangesAsync();
             }
-        }
+        }   
 
+        //Deletes jobseeker by UserId(PK)
         public async Task DeleteJobSeekerByUserIdAsync(string id){
             var jobseeker = new JobSeekerDetail(){
                 user_id = id

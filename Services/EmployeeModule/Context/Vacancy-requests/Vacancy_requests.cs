@@ -1,6 +1,7 @@
 using System;
 
 namespace EmployeeModule.Context{
+    //Columns for vacancy requests
     public class VacancyRequests{
         public int id { get;set; }
         public int vacancy_id { get;set; }

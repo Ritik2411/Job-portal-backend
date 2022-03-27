@@ -21,6 +21,7 @@ namespace WebApi
             {
                 webBuilder.UseStartup<Startup>();
                 webBuilder.ConfigureAppConfiguration(config => {
+                    //Config for API gateway
                     config.AddJsonFile("Ocelot.json");
                 });
             });

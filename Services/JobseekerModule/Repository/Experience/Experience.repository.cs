@@ -13,6 +13,7 @@ namespace JobseekerModule.repository{
             _context = context;
         }
 
+        //Adds user experience data
         public async Task AddUserExperienceAsync(ExperienceModel experienceModel){
             var experience = new Experience(){
                 user_id = experienceModel.user_id,
@@ -28,6 +29,7 @@ namespace JobseekerModule.repository{
             await _context.SaveChangesAsync();
         }
 
+        //Give experience details by ID(PK)
         public async Task<List<ExperienceModel>> GetUserExperienceByIdAsync(string id){
             var result = await _context.experience.Where(x=> x.user_id == id).Select(x => new ExperienceModel(){
                  id = x.Id,
@@ -43,6 +45,7 @@ namespace JobseekerModule.repository{
             return result;
         }
 
+        //Updates a user experience data by ID(PK)
         public async Task UpdateExperienceById(int id, ExperienceModel experienceModel){
             var result = await _context.experience.FindAsync(id);
             if(result != null){
@@ -57,6 +60,7 @@ namespace JobseekerModule.repository{
             }
         }
 
+        //Deletes user experience data by ID(PK)
         public async Task DeleteExperienceByIdAsync(int id){
             var experience = new Experience(){
                 Id = id

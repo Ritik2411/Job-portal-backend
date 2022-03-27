@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace JobseekerModule.context{
+    //Columns for CV table.
     public class CV {
         public int id { get;set; }
 

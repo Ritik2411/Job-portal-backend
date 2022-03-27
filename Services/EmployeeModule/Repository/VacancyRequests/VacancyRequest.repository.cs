@@ -51,6 +51,7 @@ namespace EmployeeModule.Repository{
            return result;
         }
 
+        //Gives a list of all vacancy requests by jobseeker id.
         public async Task<List<VacancyRequests>> getallVacancyRequestsByUserIdAsync(string user_id){
             var result = await _context.vacancyRequests.Where(x => x.user_id == user_id).Select(x => new VacancyRequests(){
                 id = x.id,
@@ -68,7 +69,7 @@ namespace EmployeeModule.Repository{
             return result;
         }
 
-        //Get vacancies requests by jobseeker user_id. 
+        //Get vacancies requests by jobseeker user_id with sorting, filtering, paging. 
         public async Task<ResponeseModel> GetVacancyRequestsByUserIdAsync(string user_id, string status,string sort_by_date, int page_size, int page){
             var result = await _context.vacancyRequests.Where(x => x.user_id == user_id).Select(x => new VacancyRequests(){
                 id = x.id,
@@ -124,6 +125,7 @@ namespace EmployeeModule.Repository{
             };
         }
 
+        //Gives vacancy requests by publisher(Employer) name with filtering, sorting, and paging
         public async Task<ResponeseModel> GetVacancyRequestsByPublisherNameAsync(string publisher_name, string search,string sort_order, int page_size, int page){
             var result = await _context.vacancyRequests.Where(x => x.PublishedBy == publisher_name).Select(x => new VacancyRequests(){
                 id = x.id,
@@ -174,7 +176,7 @@ namespace EmployeeModule.Repository{
                     break;
             }
 
-            //Pagiantion
+            //Pagination
             var vacancyRequest = PaginationModel<VacancyRequests>.create(result, page, page_size);
             
             return new ResponeseModel(){

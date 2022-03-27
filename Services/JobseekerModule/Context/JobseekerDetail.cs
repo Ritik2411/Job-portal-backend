@@ -5,7 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JobseekerModule.context{
 
+    //Annotation for defining table name
     [Table("JobseekerDetail")]
+    
+    //Column for jobseeker detail table
     public class JobSeekerDetail{
         [Key]
         public string user_id { get;set; }
@@ -19,7 +22,9 @@ namespace JobseekerModule.context{
         public string expected_salary { get;set; }
         public string dob { get;set; } 
 
+        //Refrence for qualification table for assigning FK to quafication table
         public ICollection<Qualification> qualification { get;set; }
+        //Refrence for experience table for assigning FK to experience table
         public ICollection<Experience> experience { get;set; }
     }
 }

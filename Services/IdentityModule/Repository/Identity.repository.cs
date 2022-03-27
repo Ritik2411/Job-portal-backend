@@ -15,12 +15,15 @@ namespace IdentityModule.repository{
         private readonly UserManager<IdentityModel> _user;
         private readonly SignInManager<IdentityModel> _signmanager;
         private readonly IConfiguration _configuration;
+
+        //Initiates the userManager, signinManager from the identity core with all of inbuilt their methods. 
         public IdentityRepository(UserManager<IdentityModel> user, SignInManager<IdentityModel> signInManager, IConfiguration configuration){
             _user = user;
             _signmanager = signInManager;
             _configuration = configuration;
         }
 
+        //Adds a new user
         public async Task<IdentityResult> SignupAsync(RegisterModel registerModel){
             var identity = new IdentityModel(){
                 UserName = registerModel.userName,
@@ -33,6 +36,7 @@ namespace IdentityModule.repository{
             return await _user.CreateAsync(identity, registerModel.password);
         }
 
+        //Logs in the user and generate a unique token to identity the user.
         public async Task<string> LoginAsync(LoginModel loginModel){
             var result = await _signmanager.PasswordSignInAsync(loginModel.Username, loginModel.password, false, false);
 
@@ -59,6 +63,7 @@ namespace IdentityModule.repository{
             }
         }
 
+        //Used to change password for a particular user account with their email, cuurrent and new password to br set. 
         public async Task ChangePasswordAsync(ChangePasswordModel ChangePasswordModel){
             var result = await _user.FindByEmailAsync(ChangePasswordModel.Email);
             if(result != null){
@@ -66,21 +71,25 @@ namespace IdentityModule.repository{
             }    
         }
 
+        //Give list of all registered user.
         public async Task<List<IdentityModel>> GetAllUsersAsync(){
             var result = await _user.Users.ToListAsync();
             return result;
         }
 
+        //Gives data about particular user by their userId.
         public async Task<IdentityModel> GetAllUsersByIdAsync(string id){
             var result = await _user.FindByIdAsync(id);
             return result;
         }
 
+        //Give data about particular user by their user name.
         public async Task<IdentityModel> GetUserByUsernameAsync(string userName){
             var result = await _user.FindByNameAsync(userName);
             return result;
         }
 
+        //Deletes a user by username.
         public async Task deleteUserAsync(string userName){
             var data = await _user.FindByNameAsync(userName);
 
@@ -89,6 +98,7 @@ namespace IdentityModule.repository{
             }
         }
 
+        //Updates first and last name of user based on user name.
         public async Task updateUserAsync(string username, UpdateProfileModel updateProfileModel){
             var data = await _user.FindByNameAsync(username);
 
@@ -99,7 +109,8 @@ namespace IdentityModule.repository{
 
             await _user.UpdateAsync(data);
         }
-        
+
+        //Logs out the user and destroys their session.    
         public async Task SignOutAsync(){
             await _signmanager.SignOutAsync();
         }

@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JobseekerModule.context{
+    //Column for Experience table
     public class Experience{
         public int Id { get;set; }
         public string company_name { get;set; }
@@ -12,7 +13,10 @@ namespace JobseekerModule.context{
         public string JobDescription { get;set; } 
 
         [ForeignKey("jobSeeker")]
+        //Forrign key column from jobseeker table
         public string user_id { get;set; }
+        
+        //Foreign key property
         public JobSeekerDetail jobSeeker { get;set; }
     }
 }

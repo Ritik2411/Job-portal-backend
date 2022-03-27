@@ -35,10 +35,14 @@ namespace UserModule
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IIdentity, IdentityRepository>();
+
+            //DBcontext for identity module.
             services.AddDbContext<IdentityContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));
             
+            //Service required for idenitity module.
             services.AddIdentity<IdentityModel, IdentityRole>().AddEntityFrameworkStores<IdentityContext>().AddDefaultTokenProviders();
             
+            //Adds authentication service when user logs in to verify the user.
             services.AddAuthentication(option => {
                 option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -55,6 +59,7 @@ namespace UserModule
                 };
             });
 
+            //Services the avoid CORS error.
             services.AddCors(options => {
                 options.AddDefaultPolicy(builderPolicy => {
                     builderPolicy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();

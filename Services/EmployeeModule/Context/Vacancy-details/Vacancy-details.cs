@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace EmployeeModule.Context{
+    //Column for vacancy table
     public class VacancyDetail{
         public int id { get;set;}
         public string user_id { get;set; }

@@ -11,6 +11,7 @@ namespace JobseekerModule.repository{
             _context = context;
         }
 
+        //Adds qualification data
         public async Task AddQualificationAsync(QualificationModel qualificationModel){
             var qualification = new Qualification(){
                 user_id = qualificationModel.userId,
@@ -25,6 +26,7 @@ namespace JobseekerModule.repository{
             await _context.SaveChangesAsync();
         }
 
+        //Gives the qualification by userId
         public async Task<List<QualificationModel>> GetQualicationByUserId(string user_id){
             var qualification_data = await _context.qualification.Where(x => x.user_id == user_id).Select(x => new QualificationModel(){
                 id = x.id,
@@ -39,6 +41,7 @@ namespace JobseekerModule.repository{
             return qualification_data;
         } 
 
+        //Updates qualifcation details by ID(PK)
         public async Task UpdateQualificaitonAsync(int id,QualificationModel qualificationModel){
             var qualification = await _context.qualification.FindAsync(id);
 
@@ -50,8 +53,9 @@ namespace JobseekerModule.repository{
 
                 await _context.SaveChangesAsync();
             }
-        }
+        }   
 
+        //Deletes a experience details by ID(PK)
         public async Task deleteQualificationByIdAsync(int id){
             var qualification = new Qualification(){
                 id = id

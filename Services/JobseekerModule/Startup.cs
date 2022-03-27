@@ -28,10 +28,17 @@ namespace JobseekerModule
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {   
+            //DBcontext for Jobseeker Details table
             services.AddDbContext<JobseekerDetailContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));    
+            
+            //DBcontext for Qualification table
             services.AddDbContext<QualificationContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));
+            
+            //DBcontext for Experience table
             services.AddDbContext<ExperienceContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));
+            
+            //DBContext for CV table
             services.AddDbContext<CvContext>(options => options.UseSqlServer(Configuration.GetConnectionString("sqlServer")));
 
             services.AddTransient<IJobSeeker, JobseekerRepository>();
@@ -39,6 +46,7 @@ namespace JobseekerModule
             services.AddTransient<IExperience, ExperienceRepository>();
             services.AddTransient<ICv,CvRepository>();
 
+            //Add CORS service to avoid CORS errors
             services.AddCors(options => {
                 options.AddDefaultPolicy(builderPolicy => {
                     builderPolicy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
